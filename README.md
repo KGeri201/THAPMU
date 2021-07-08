@@ -24,8 +24,10 @@ I designed the software in Arduino IDE.
 
 
 ## Credits
+[KGeri201](https://github.com/KGeri201)
 
 ## License
+[GNU GENERAL PUBLIC LICENSE](https://choosealicense.com/licenses/gpl-3.0/)
 
-## Status
+## Project status
 In development.
