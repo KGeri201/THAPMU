@@ -16,7 +16,7 @@ I only gave a voltage regulator and a usb type c connector on to the board. This
 (For you I provided even the Layout and Scematic of the pcb with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
 
 ## Hardware
-This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).
+This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).  
 I modified the circuit and the layout to fit the requirements of the esp and the sensor.
 To keep the project as simple as possible I did not integrate the esp and the sensor.
 They are both normal boards to plug into the modified serial adapter.
