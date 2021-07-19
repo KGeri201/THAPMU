@@ -2,16 +2,18 @@
 THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**easurement **U**nit.
 
 ## Story
-I wanted to monitor the temperature of several rooms and wanted to display all the measurements on one website.
-I also wanted to have it as cheap, easy to manufacture and to use as possible.
+I wanted to monitor the temperature of several rooms and wanted to display all the measurements on one website.  
+I also wanted to have it as cheap, easy to manufacture and to use as possible.  
 I searched on the internet and i found a very good looking sensor and esp combo.
 It was not perfect but looked promising.
 I read the reviews about it and I was very disapointed.
-There were only complains about the product.
-I thought, it should not be that hard to combine an esp wlan module and an measurement instrument.
+There were only complains about the product.  
+I thought, it should not be that hard to combine an esp wlan module and an measurement instrument.  
 I decided for an esp-01 and for an bme280 sensor, because of his wide range of usability.
-To be as easy to use as possible I wanted to add also a serial adapter to the whole thing, to make the user able to flash the esp easily, without removing it from the board.
-But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any, which I was able to have in less than two months. It was either sold out or the deliver would have taken more than my patience could handle. So sadly I had to make everything even cheaper and easier. I only gave a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the esps needs to be flashed only once. To to this a seperate serial adapter is needed. (For you I provided even the Layout and Scematic of the pcb with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
+To be as easy to use as possible I wanted to add also a serial adapter to the whole thing, to make the user able to flash the esp easily, without removing it from the board.  
+But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any, which I was able to have in less than two months. It was either sold out or the deliver would have taken more than my patience could handle. So sadly I had to make everything even cheaper and easier.  
+I only gave a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the esps needs to be flashed only once. To to this a seperate serial adapter is needed.  
+(For you I provided even the Layout and Scematic of the pcb with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
 
 ## Hardware
 This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).
