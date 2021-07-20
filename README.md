@@ -13,7 +13,7 @@ I decided for an esp-01 and for an bme280 sensor, because of his wide range of u
 To be as easy to use as possible I wanted to add also a serial adapter to the whole thing, to make the user able to flash the esp easily, without removing it from the board.  
 But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any, which I was able to have in less than two months. It was either sold out or the deliver would have taken more than my patience could handle. So sadly I had to make everything even cheaper and easier.  
 I only gave a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the esps needs to be flashed only once. To do this a seperate serial adapter is needed.  
-(For you I provided even the Layout and Scematic of the pcb with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
+(For you I even provided the Layout and Scematic of the pcb with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
 
 ## Hardware
 This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).  
