@@ -23,7 +23,10 @@ They are both normal boards to plug into the modified serial adapter.
 
 ## Software
 I designed the software in Arduino IDE.  
-There are two versions. One for the sensors (slaves) and one for a brain unit (master), which is hosting a mqtt server and reading and displaying the data of all the sensors. 
+There are two versions. One for the sensors (slaves) and one for a brain unit (master), which is hosting a mqtt server and reading and displaying the data of all the sensors.
+
+## Manual
+To use the sensor you will need to have a MQTT server up and running.
 
 ## Credits
 [KGeri201](https://github.com/KGeri201)
