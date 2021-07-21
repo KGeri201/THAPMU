@@ -26,7 +26,18 @@ I designed the software in Arduino IDE.
 There are two versions. One for the sensors (slaves) and one for a brain unit (master), which is hosting a mqtt server and reading and displaying the data of all the sensors.
 
 ## Manual
-To use the sensor you will need to have a MQTT server up and running.
+### Requirements
+* 1 THAPMU board (fully fitted, and ready to use)
+* 1 ESP01 breakout board
+* 1 BME or BMP sensor
+* If you are using the board without the integrated serial adapter, then you will need an extra external serial adapter to flash your ESP
+
+To use the sensor you will need to have a MQTT broker up and running.
+After that, you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.
+When you are done with that, you can flash the ESP.
+Using the version with the integrated serial adapter: You will have to remove the sensor and connect the GND Pin with the XX Pin via a jumper. After that you can upload the code to it. Remove the jumper and plug out then again in the board.
+Using your own seperate serial adapter: flash the ESP.
+After that you are up and running. Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
 [KGeri201](https://github.com/KGeri201)
