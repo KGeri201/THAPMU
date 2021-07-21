@@ -22,8 +22,7 @@ To keep the project as simple as possible I did not integrate the esp and the se
 They are both normal boards to plug into the modified serial adapter.
 
 ## Software
-I designed the software in Arduino IDE.  
-There are two versions. One for the sensors (slaves) and one for a brain unit (master), which is hosting a mqtt server and reading and displaying the data of all the sensors.
+There are amy good, similar projects online, so I used thier code.
 
 ## Manual
 ### Requirements
