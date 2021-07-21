@@ -31,6 +31,7 @@ There are two versions. One for the sensors (slaves) and one for a brain unit (m
 * 1 ESP01 breakout board
 * 1 BME or BMP sensor
 * If you are using the board without the integrated serial adapter, then you will need an extra external serial adapter to flash your ESP
+* Also an USB-C cable to power the board.
 
 To use the sensor you will need to have a MQTT broker up and running.
 After that, you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.
