@@ -14,10 +14,10 @@
 #include <ESP8266WiFi.h>
 #include <Ticker.h>
 #include <AsyncMqttClient.h>
-#include <Adafruit_BMP280.h>
+#include <Adafruit_BME280.h>
 
 // Sensor I2C
-Adafruit_BMP280 sensor;
+Adafruit_BME280 sensor;
 
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
@@ -142,8 +142,7 @@ void loop() {
     // New sensor readings
     temp = sensor.readTemperature();
     //temp = 1.8*sensor.readTemperature() + 32;#
-    hum = 0;
-    //hum = sensor.readHumidity();
+    hum = sensor.readHumidity();
     pres = sensor.readPressure()/100.0F;
 
     // Publish an MQTT message on topic esp/sensor/location
