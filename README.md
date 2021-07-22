@@ -22,7 +22,7 @@ To keep the project as simple as possible I did not integrate the esp and the se
 They are both normal boards to plug into the modified serial adapter.
 
 ## Software
-There are amy good, similar projects online, so I used thier code.
+There are many good, similar projects online, so I took inspiration from them.
 
 ## Manual
 ### Requirements
