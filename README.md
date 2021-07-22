@@ -51,12 +51,12 @@ You can also add the location of the device.
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
 ```
-Also do not forget to change the library, if you are not using a bmp280.
+Also do not forget to change the library, if you are not using a BME280.
 ```c++
-#include <Adafruit_BMP280.h>
+#include <Adafruit_BME280.h>
 
 // Sensor I2C
-Adafruit_BMP280 sensor;
+Adafruit_BME280 sensor;
 ```
 When you are done with that, you can flash the ESP.  
 Using the version with the integrated serial adapter: You will have to remove the sensor and connect the GND Pin with the XX Pin via a jumper. After that you can upload the code to it. Remove the jumper and plug the board out then in again to reset it.  
