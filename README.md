@@ -22,7 +22,7 @@ To keep the project as simple as possible I did not integrate the esp and the se
 They are both normal boards to plug into the modified serial adapter.
 
 ## Software
-I found a very Code very similar and nearly perfect for my usacase.
+I found a very Code very similar and nearly perfect for my usecase.
 I only modified it a little to make it a perfect fit.
 (Original in Credits)
 
@@ -43,6 +43,7 @@ After that you are up and running. Just plug the board in somewhere and wait for
 
 ## Credits
 [KGeri201](https://github.com/KGeri201)
+[randomnerdtutorials.com](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/)
 
 ## License
 [GNU GENERAL PUBLIC LICENSE](https://choosealicense.com/licenses/gpl-3.0/)
