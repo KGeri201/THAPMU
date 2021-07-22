@@ -34,8 +34,12 @@ I only modified it a little to make it a perfect fit.
 * If you are using the board without the integrated serial adapter, then you will need an extra external serial adapter to flash your ESP
 * Also an USB-C cable to power the board.
 
+### Instructions
 To use the sensor you will need to have a MQTT broker up and running.  
-After that, you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
+After that, you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.
+```arduino
+#define teste
+```
 When you are done with that, you can flash the ESP.  
 Using the version with the integrated serial adapter: You will have to remove the sensor and connect the GND Pin with the XX Pin via a jumper. After that you can upload the code to it. Remove the jumper and plug the board out then in again to reset it.  
 Using your own seperate serial adapter: flash the ESP.  
