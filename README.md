@@ -11,7 +11,8 @@ There were only complains about the product.
 I thought, it should not be that hard to combine an esp wlan module and an measurement instrument.  
 I decided for an esp-01 and for an bme280 sensor, because of his wide range of usability.
 To be as easy to use as possible I wanted to add also a serial adapter to the whole thing, to make the user able to flash the esp easily, without removing it from the board.  
-But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any, which I was able to have in less than two months. It was either sold out or the deliver would have taken more than my patience could handle. So sadly I had to make everything even cheaper and easier.  
+But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any, which I was able to have in less than two months. It was either sold out or the deliver would have taken more than my patience could handle.  
+So sadly I had to make everything even cheaper and easier.  
 I only gave a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the esps needs to be flashed only once. To do this a seperate serial adapter is needed.  
 (For you I even provided the Layout and Scematic of the pcb with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
 
