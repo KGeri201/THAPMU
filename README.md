@@ -32,7 +32,7 @@ I only modified it a little to make it a perfect fit.
 * 1 THAPMU board (fully fitted, and ready to use)
 * 1 ESP01 breakout board
 * 1 BME or BMP sensor
-* If you are using the board without the integrated serial adapter, then you will need an extra external serial adapter to flash your ESP
+* If you are using the board without the integrated serial adapter,  then you will need an extra external serial adapter to flash your ESP
 * Also an USB-C cable to power the board.
 
 ### Instructions
