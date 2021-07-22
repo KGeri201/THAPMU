@@ -54,6 +54,7 @@ Also do not forget to change the library, if you are not using a bmp280.
 ```c++
 #include <Adafruit_BMP280.h>
 
+// Sensor I2C
 Adafruit_BMP280 sensor;
 ```
 When you are done with that, you can flash the ESP.  
