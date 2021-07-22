@@ -38,7 +38,15 @@ I only modified it a little to make it a perfect fit.
 To use the sensor you will need to have a MQTT broker up and running.  
 After that, you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.
 ```c++
-#define teste
+#define LOCATION "LOCATION_OF_THE_DEVICE"
+#define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
+#define WIFI_PASSWORD "REPLACE_WITH_YOUR_PASSWORD"
+
+// Raspberri Pi Mosquitto MQTT Broker
+#define MQTT_HOST IPAddress(X, X, X, X)
+// For a cloud MQTT broker, type the domain name
+//#define MQTT_HOST "example.com"
+#define MQTT_PORT 1883
 ```
 When you are done with that, you can flash the ESP.  
 Using the version with the integrated serial adapter: You will have to remove the sensor and connect the GND Pin with the XX Pin via a jumper. After that you can upload the code to it. Remove the jumper and plug the board out then in again to reset it.  
