@@ -37,7 +37,7 @@ I only modified it a little to make it a perfect fit.
 ### Instructions
 To use the sensor you will need to have a MQTT broker up and running.  
 After that, you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.
-```arduino
+```c++
 #define teste
 ```
 When you are done with that, you can flash the ESP.  
