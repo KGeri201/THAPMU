@@ -69,8 +69,8 @@ Using your own seperate serial adapter:
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
-[KGeri201](https://github.com/KGeri201)  
 [randomnerdtutorials.com](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/)
+[KGeri201](https://github.com/KGeri201)  
 
 ## License
 [GNU GENERAL PUBLIC LICENSE](https://choosealicense.com/licenses/gpl-3.0/)
