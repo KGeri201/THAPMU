@@ -38,8 +38,8 @@ I only modified it a little to make it a perfect fit.
 
 ### Instructions
 1. To use the sensor you will need to have a MQTT broker up and running.  
-2. You will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.
-You can also add the location of the device.
+2. You will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
+&nbsp;&nbsp;&nbsp;&nbsp; You can also add the location of the device.
 ```c++
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
