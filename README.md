@@ -50,8 +50,8 @@ You can also add the location of the device.
 // For a cloud MQTT broker, type the domain name
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
-```
-&nbsp;&nbsp;Also do not forget to change the library, if you are not using a BME280.
+```  
+&nbsp;&nbsp;&nbsp;&nbsp; Also do not forget to change the library, if you are not using a BME280.  
 ```c++
 #include <Adafruit_BME280.h>
 
@@ -59,12 +59,12 @@ You can also add the location of the device.
 Adafruit_BME280 sensor;
 ```
 3.) you have to flash the ESP.
-Using the version with the integrated serial adapter:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After that you can upload the code to it.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove the jumper and plug the board out then in again to reset it.
-Using your own seperate serial adapter:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the instructions to your board.  
+Using the version with the integrated serial adapter:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After that you can upload the code to it.  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove the jumper and plug the board out then in again to reset it.  
+Using your own seperate serial adapter:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the instructions to your board.   
 4.) After that you are up and running. Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
