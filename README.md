@@ -39,7 +39,7 @@ I only modified it a little to make it a perfect fit.
 ### Instructions
 1. To use the sensor you will need to have a MQTT broker up and running.  
 2. You will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
-&nbsp;&nbsp;&nbsp;&nbsp; You can also add the location of the device.
+You can also add the location of the device.
 ```c++
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
@@ -58,14 +58,15 @@ I only modified it a little to make it a perfect fit.
 // Sensor I2C
 Adafruit_BME280 sensor;
 ```
-3.) you have to flash the ESP.  
-&nbsp;&nbsp;&nbsp;&nbsp; Using the version with the integrated serial adapter:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After that you can upload the code to it.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove the jumper and plug the board out then in again to reset it.  
-&nbsp;&nbsp;&nbsp;&nbsp; Using your own seperate serial adapter:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; follow the instructions to your board.   
-4.) After that you are up and running. Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
+3. you have to flash the ESP.  
+Using the version with the integrated serial adapter:  
+&nbsp;&nbsp;&nbsp;&nbsp; You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
+&nbsp;&nbsp;&nbsp;&nbsp; After that you can upload the code to it.  
+&nbsp;&nbsp;&nbsp;&nbsp; Remove the jumper and plug the board out then in again to reset it.  
+Using your own seperate serial adapter:  
+&nbsp;&nbsp;&nbsp;&nbsp; follow the instructions to your board.   
+4. After that you are up and running.  
+Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
 [KGeri201](https://github.com/KGeri201)  
