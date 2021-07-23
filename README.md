@@ -39,7 +39,7 @@ I only modified it a little to make it a perfect fit.
 ### Instructions
 1. To use the sensor you will need to have a MQTT broker up and running.  
 2. You will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
-You can also add the location of the device.```c++
+You can also add the location of the device. ```c++
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
 #define WIFI_PASSWORD "REPLACE_WITH_YOUR_PASSWORD"
@@ -48,8 +48,7 @@ You can also add the location of the device.```c++
 #define MQTT_HOST IPAddress(X, X, X, X)
 // For a cloud MQTT broker, type the domain name
 //#define MQTT_HOST "example.com"
-#define MQTT_PORT 1883```  
-Also do not forget to change the library, if you are not using a BME280.  ```c++
+#define MQTT_PORT 1883``` Also do not forget to change the library, if you are not using a BME280. ```c++
 #include <Adafruit_BME280.h>
 
 // Sensor I2C
