@@ -59,7 +59,7 @@ You can also add the location of the device.
 Adafruit_BME280 sensor;
 ```
 3.) you have to flash the ESP.  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Using the version with the integrated serial adapter:  
+&nbsp;&nbsp;&nbsp;&nbsp; Using the version with the integrated serial adapter:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; After that you can upload the code to it.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remove the jumper and plug the board out then in again to reset it.  
