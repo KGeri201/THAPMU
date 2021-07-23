@@ -54,7 +54,7 @@ You can also add the location of the device.
 #define MQTT_PORT 1883
 ``` 
 &nbsp;&nbsp;&nbsp;&nbsp; Also do not forget to change the library, if you are not using a BME280.
-```c++
+```ino
 #include <Adafruit_BME280.h>
 
 // Sensor I2C
