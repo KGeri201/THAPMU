@@ -1,4 +1,4 @@
-<img src="THAPMU.svg" alt="Logo" style="height: 10%;"/>
+<img src="THAPMU.svg" alt="Logo" style="height: 10"/>
 
 # THAPMU
 THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**easurement **U**nit.
