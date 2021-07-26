@@ -52,7 +52,7 @@ You can also add the location of the device.
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
 ``` 
-3. Change the library, if you are not using a BME280.
+3. Change the library according to your sensor.
 ```ino
 #include <Adafruit_BME280.h>
 
