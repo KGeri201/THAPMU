@@ -37,7 +37,7 @@ I only modified it a little to make it a perfect fit.
 * Also an USB-C cable to power the board.
 
 ### Instructions
-1. To display your data you will need to have a mqtt broker and grafana equipped with a mqtt datasource plugin.
+1. To display your data you will need to have a mqtt broker and grafana equipped with a mqtt datasource plugin.  
 For that you can download this amazing [docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
 2. Next you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
 You can also add the location of the device.
