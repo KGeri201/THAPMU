@@ -39,9 +39,9 @@ I only modified it a little to make it a perfect fit.
 ### Instructions
 1. To use the sensor you will need to have a [MQTT broker](https://mosquitto.org/) up and running.
 2. You will also need [grafana](https://grafana.com/) to monitor your data.
-3. There are multiple solutions to use data from mqtt. Choose on of the following.
-** Using [mqtt datasourde plugin](https://github.com/grafana/mqtt-datasource) or
-** [Making a database to store and display the recieved data](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).
+3. There are multiple solutions to use data from mqtt. Choose on of the following.  
+* Using [mqtt datasourde plugin](https://github.com/grafana/mqtt-datasource) or  
+* [Making a database to store and display the recieved data](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).  
 5. Next you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
 You can also add the location of the device.
 ```ino
