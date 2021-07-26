@@ -37,12 +37,9 @@ I only modified it a little to make it a perfect fit.
 * Also an USB-C cable to power the board.
 
 ### Instructions
-1. To use the sensor you will need to have a [MQTT broker](https://mosquitto.org/) up and running.
-2. You will also need [grafana](https://grafana.com/) to monitor your data.
-3. There are multiple solutions to use data from mqtt. Choose on of the following.
-    - Using [mqtt datasourde plugin](https://github.com/grafana/mqtt-datasource) or  
-    - [Making a database to store and display the recieved data](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).  
-4. Next you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
+1. To display your data you will need to have grafana equipped with a mqtt datasource plugin.
+For that you can download this amazing [docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
+2. Next you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
 You can also add the location of the device.
 ```ino
 #define LOCATION "LOCATION_OF_THE_DEVICE"
@@ -55,25 +52,26 @@ You can also add the location of the device.
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
 ``` 
-5. Change the library, if you are not using a BME280.
+3. Change the library, if you are not using a BME280.
 ```ino
 #include <Adafruit_BME280.h>
 
 // Sensor I2C
 Adafruit_BME280 sensor;
 ```
-6. You will have to flash the ESP.  
+4. You will have to flash the ESP.  
     - Using the version with the integrated serial adapter:  
       - You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
       - After that you can upload the code to it.  
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
       - follow the instructions to your board.   
-7. After that you are up and running.  
+5. After that you are up and running.  
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
 [Random Nerd Tutorials](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/)  
+[HimbeersaftLP](https://github.com/HimbeersaftLP)
 [KGeri201](https://github.com/KGeri201)  
 
 ## License
