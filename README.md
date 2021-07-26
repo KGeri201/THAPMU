@@ -71,7 +71,7 @@ Just plug the board in somewhere and wait for it to connect to your WLAN and to 
 
 ## Credits
 [Random Nerd Tutorials](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/)  
-[HimbeersaftLP](https://github.com/HimbeersaftLP)
+[HimbeersaftLP](https://github.com/HimbeersaftLP)  
 [KGeri201](https://github.com/KGeri201)  
 
 ## License
