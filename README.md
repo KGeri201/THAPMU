@@ -63,12 +63,12 @@ You can also add the location of the device.
 Adafruit_BME280 sensor;
 ```
 3. You will have to flash the ESP.  
-  - Using the version with the integrated serial adapter:  
-    - You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
-    - After that you can upload the code to it.  
-    - Remove the jumper and plug the board out then in again to reset it.  
-  - Using your own seperate serial adapter:  
-    - follow the instructions to your board.   
+    - Using the version with the integrated serial adapter:  
+      - You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
+      - After that you can upload the code to it.  
+      - Remove the jumper and plug the board out then in again to reset it.  
+    - Using your own seperate serial adapter:  
+      - follow the instructions to your board.   
 4. After that you are up and running.  
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
