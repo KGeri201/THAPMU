@@ -37,8 +37,12 @@ I only modified it a little to make it a perfect fit.
 * Also an USB-C cable to power the board.
 
 ### Instructions
-1. To use the sensor you will need to have a [MQTT broker](https://mosquitto.org/) up and running.  
-2. You will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
+1. To use the sensor you will need to have a [MQTT broker](https://mosquitto.org/) up and running.
+2. You will also need [grafana](https://grafana.com/) to monitor your data.
+3. There are multiple solutions to use data from mqtt. Choose on of the following.
+** Using [mqtt datasourde plugin](https://github.com/grafana/mqtt-datasource) or
+** [Making a database to store and display the recieved data](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).
+5. Next you will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
 You can also add the location of the device.
 ```ino
 #define LOCATION "LOCATION_OF_THE_DEVICE"
@@ -58,7 +62,7 @@ You can also add the location of the device.
 // Sensor I2C
 Adafruit_BME280 sensor;
 ```
-3. you have to flash the ESP.  
+3. You will have to flash the ESP.  
 Using the version with the integrated serial adapter:  
 &nbsp;&nbsp;&nbsp;&nbsp; You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
 &nbsp;&nbsp;&nbsp;&nbsp; After that you can upload the code to it.  
