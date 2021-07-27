@@ -114,6 +114,9 @@ void setup() {
   Serial.begin(115200);
   Serial.println();
   
+  Wire.pins(0, 2);
+  Wire.begin();
+  
   // Initialize sensor 
   if (!sensor.begin(0x76)) {
     Serial.println("Could not find a valid sensor, check wiring!");
