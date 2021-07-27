@@ -19,6 +19,7 @@
 // Sensor I2C
 Adafruit_BME280 sensor;
 
+#define NAME "NAME_OF_THE_DEVICE"
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
 #define WIFI_PASSWORD "REPLACE_WITH_YOUR_PASSWORD"
@@ -31,11 +32,13 @@ Adafruit_BME280 sensor;
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
+// Interval of topic updates in seconds
+#define Interval 10
+
 // Temperature MQTT Topics
-#define MQTT_PUB_LOCATION "esp/location"
-#define MQTT_PUB_TEMP "esp/sensor/temperature"
-#define MQTT_PUB_HUM "esp/sensor/humidity"
-#define MQTT_PUB_PRES "esp/sensor/pressure"
+const String MQTT_PUB_TEMP = String(LOCATION) + "/" + String(NAME)+ "/" + "/temperature";
+const String MQTT_PUB_HUM = String(LOCATION) + "/" + String(NAME) + "/" + "/humidity";
+const String MQTT_PUB_PRES = String(LOCATION) + "/" + String(NAME) + "/" + "/pressure";
 
 // Variables to hold sensor readings
 float temp;
@@ -133,36 +136,27 @@ void setup() {
 }
 
 void loop() {
-  unsigned long currentMillis = millis();
-  // Every X number of seconds (interval = 10 seconds) 
-  // it publishes a new MQTT message
-  if (currentMillis - previousMillis >= interval) {
-    // Save the last time a new reading was published
-    previousMillis = currentMillis;
-    // New sensor readings
-    temp = sensor.readTemperature();
-    //temp = 1.8*sensor.readTemperature() + 32;#
-    hum = sensor.readHumidity();
-    pres = sensor.readPressure()/100.0F;
+  // New sensor readings
+  temp = sensor.readTemperature();
+  //temp = 1.8*sensor.readTemperature() + 32;#
+  hum = sensor.readHumidity();
+  pres = sensor.readPressure()/100.0F;
 
-    // Publish an MQTT message on topic esp/location
-    uint16_t packetIdPub0 = mqttClient.publish(MQTT_PUB_LOCATION, 1, true, String(LOCATION).c_str());                            
-    Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_LOCATION, packetIdPub0);
-    Serial.printf("Message: %s \n", LOCATION);
-    
-    // Publish an MQTT message on topic esp/sensor/temperature
-    uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, 1, true, String(temp).c_str());                            
-    Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_TEMP, packetIdPub1);
-    Serial.printf("Message: %.2f \n", temp);
+  // Publish an MQTT message on topic esp/sensor/temperature
+  uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP.c_str(), 1, true, String(temp).c_str());                            
+  Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_TEMP, packetIdPub1);
+  Serial.printf("Message: %.2f \n", temp);
 
-    // Publish an MQTT message on topic esp/sensor/humidity
-    uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_HUM, 1, true, String(hum).c_str());                            
-    Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_HUM, packetIdPub2);
-    Serial.printf("Message: %.2f \n", hum);
+  // Publish an MQTT message on topic esp/sensor/humidity
+  uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_HUM.c_str(), 1, true, String(hum).c_str());                            
+  Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_HUM, packetIdPub2);
+  Serial.printf("Message: %.2f \n", hum);
 
-    // Publish an MQTT message on topic esp/sensor/pressure
-    uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_PRES, 1, true, String(pres).c_str());                            
-    Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_PRES, packetIdPub3);
-    Serial.printf("Message: %.3f \n", pres);
-  }
+  // Publish an MQTT message on topic esp/sensor/pressure
+  uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_PRES.c_str(), 1, true, String(pres).c_str());                            
+  Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_PRES, packetIdPub3);
+  Serial.printf("Message: %.3f \n", pres);
+  
+  // wait before reading te sensors again
+  delay(Interval *1000);
 }
