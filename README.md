@@ -37,7 +37,14 @@ I only modified it a little to make it a perfect fit.
 * Also an USB-C cable to power the board.
 
 ### Instructions
-1. You will have to open the code for the ESP and fill in your WLAN SSID and password, and also the address of the MQTT broker.  
+1. You will have to open the code for the ESP and change the library according to your sensor.  
+```ino
+#include <Adafruit_BME280.h>
+
+// Sensor I2C
+Adafruit_BME280 sensor;
+```
+2. Fill in your WLAN SSID and password, and also the address of the MQTT broker.  
 You can also add the location of the device.
 ```ino
 #define LOCATION "LOCATION_OF_THE_DEVICE"
@@ -50,13 +57,6 @@ You can also add the location of the device.
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
 ``` 
-2. Change the library according to your sensor.
-```ino
-#include <Adafruit_BME280.h>
-
-// Sensor I2C
-Adafruit_BME280 sensor;
-```
 3. You will have to flash the ESP.  
     - Using the version with the integrated serial adapter:  
       - You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
