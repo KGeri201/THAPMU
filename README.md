@@ -76,4 +76,4 @@ Just plug the board in somewhere and wait for it to connect to your WLAN and to 
 [GNU GENERAL PUBLIC LICENSE](https://choosealicense.com/licenses/gpl-3.0/)
 
 ## Project status
-In development.
+Nearly finished.
