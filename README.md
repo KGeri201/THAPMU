@@ -3,26 +3,26 @@ THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**e
 
 ## Story
 I wanted to monitor the temperature of several rooms and wanted to display all the measurements on one website.  
-I also wanted to have it as cheap, easy to manufacture and to use as possible.  
+I also wanted to have it as cheap, and as easy to manufacture and to use as possible.  
 I searched on the internet and I found a very good looking sensor and ESP combo.
 It was not perfect but looked promising.
 I read the reviews about it and I was very disapointed.
 I thought, it should not be that hard to combine an ESP WLan module and a measurement instrument.  
 I decided for an ESP-01 and for a BME280 sensor, because of his wide range of usability.
-To be as easy to use as possible I wanted to also add a serial adapter to the whole thing, to make the user able to flash the ESP easily, without the need of removing it from the board.  
-But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any, which I was able to have in less than two months. It was either sold out or the delivery would have taken more than my patience could handle.  
+To be as easy to use as possible I also wanted to add a serial adapter to the whole thing, to make the user able to flash the ESP easily, without the need of removing it from the board.  
+But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any that I was able to have in less than two months. It was either sold out or the delivery would have taken more than my patience could handle.  
 So sadly I had to make everything even cheaper and easier.  
-I only gave a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the ESP needs to be flashed only once. To do this a seperate serial adapter is needed.  
+I only put a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the ESP needs to be flashed only once. To do this a seperate serial adapter is needed.  
 (For you I even provided the layout and schematic of the PCB with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
 
 ## Hardware
 This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).  
-I modified the circuit and the layout to fit the requirements of the esp and the sensor. I also replaced some of the electronics with their easier to get and easier to solder counterparts.
+I modified the circuit and the layout to fit the requirements of the ESP and the sensor. I also replaced some of the electronics with their easier-to-get and easier-to-solder counterparts.
 To keep the project as simple as possible I did not integrate the ESP and the sensor.
 They are both normal breakout boards to plug into the modified serial adapter.
 
 ## Software
-I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my usecase.  
+I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my use.  
 I only modified it a little to make it a perfect fit.  
 
 ## Manual
@@ -61,7 +61,7 @@ Adafruit_BME280 sensor;
       - Upload the code.  
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
-      - follow the instructions to your board. 
+      - follow the instructions of your board. 
 4. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) equipped with a [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource).  
 For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
 5. Make a new dashboard with MQTT as a datasource and subscribe to your topics.  
