@@ -44,6 +44,7 @@ Adafruit_BME280 sensor;
 ```
 2. Fill in your WLAN SSID and password, and also the address of the MQTT broker. Add the location of the device if you want.
 ```ino
+#define NAME "NAME_OF_THE_DEVICE"
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
 #define WIFI_PASSWORD "REPLACE_WITH_YOUR_PASSWORD"
