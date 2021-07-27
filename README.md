@@ -64,7 +64,7 @@ Adafruit_BME280 sensor;
     - Using your own seperate serial adapter:  
       - follow the instructions to your board. 
 4. To display your data you will need to have a [mqtt broker](https://mosquitto.org/) and [grafana](https://grafana.com/) equipped with a [mqtt datasource plugin](https://github.com/grafana/mqtt-datasource).  
-For that you can download this amazing [docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
+For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
 5. Make a new dashboard with mqtt as a datasource and subscribe to your topics.   
 6. After that you are up and running.  
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
