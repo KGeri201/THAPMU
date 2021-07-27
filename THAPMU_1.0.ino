@@ -145,10 +145,10 @@ void loop() {
     hum = sensor.readHumidity();
     pres = sensor.readPressure()/100.0F;
 
-    // Publish an MQTT message on topic esp/sensor/location
+    // Publish an MQTT message on topic esp/location
     uint16_t packetIdPub0 = mqttClient.publish(MQTT_PUB_LOCATION, 1, true, String(LOCATION).c_str());                            
     Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_LOCATION, packetIdPub0);
-    Serial.printf("Message: %.2f \n", temp);
+    Serial.printf("Message: %s \n", LOCATION);
     
     // Publish an MQTT message on topic esp/sensor/temperature
     uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP, 1, true, String(temp).c_str());                            
