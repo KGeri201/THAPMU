@@ -35,14 +35,14 @@ I only modified it a little to make it a perfect fit.
 * Also an USB-C cable to power the board.
 
 ### Instructions
-1. You will have to open the code for the ESP and change the library according to your sensor.  
+1. Open the code for the ESP and change the library according to your sensor.  
 ```ino
 #include <Adafruit_BME280.h>
 
 // Sensor I2C
 Adafruit_BME280 sensor;
 ```
-2. Fill in your WLAN SSID and password, and also the address of the MQTT broker. Also add the location of the device.
+2. Fill in your WLAN SSID and password, and also the address of the MQTT broker. Add the location of the device if you want.
 ```ino
 #define LOCATION "LOCATION_OF_THE_DEVICE"
 #define WIFI_SSID "REPLACE_WITH_YOUR_SSID"
@@ -54,17 +54,17 @@ Adafruit_BME280 sensor;
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
 ``` 
-3. You will have to flash the ESP.  
+3. Flash the ESP.  
     - Using the version with the integrated serial adapter:  
-      - You will have to remove the sensor and connect the GND Pin with the WRT (write) Pin via a jumper.  
-      - After that you can upload the code to it.  
+      - Remove the sensor and connect the GND pin with the WRT (write) pin via a jumper.  
+      - Upload the code.  
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
       - follow the instructions to your board. 
 4. To display your data you will need to have a [mqtt broker](https://mosquitto.org/) and [grafana](https://grafana.com/) equipped with a [mqtt datasource plugin](https://github.com/grafana/mqtt-datasource).  
 For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
 5. Make a new dashboard with mqtt as a datasource and subscribe to your topics.   
-6. After that you are up and running.  
+6. You are up and running.  
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
