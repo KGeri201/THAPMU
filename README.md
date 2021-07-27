@@ -22,8 +22,8 @@ To keep the project as simple as possible I did not integrate the ESP and the se
 They are both normal breakout boards to plug into the modified serial adapter.
 
 ## Software
-I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my usecase.
-I only modified it a little to make it a perfect fit.
+I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my usecase.  
+I only modified it a little to make it a perfect fit.  
 (Original in Credits)
 
 ## Manual
