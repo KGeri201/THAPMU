@@ -63,8 +63,12 @@ Adafruit_BME280 sensor;
       - follow the instructions to your board. 
 4. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) equipped with a [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource).  
 For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
-5. Make a new dashboard with MQTT as a datasource and subscribe to your topics.   
-6. You are up and running.  
+5. Make a new dashboard with MQTT as a datasource and subscribe to your topics.  
+There are three topics:  
+ - LOCATION/NAME/temperature   
+ - LOCATION/NAME/humidity
+ - LOCATION/NAME/pressure
+7. You are up and running.  
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
