@@ -63,7 +63,7 @@ Adafruit_BME280 sensor;
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
       - follow the instructions to your board. 
-4. To display your data you will need to have a mqtt broker and grafana equipped with a mqtt datasource plugin.  
+4. To display your data you will need to have a [mqtt broker](https://mosquitto.org/) and [grafana](https://grafana.com/) equipped with a [mqtt datasource plugin](https://github.com/grafana/mqtt-datasource).  
 For that you can download this amazing [docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
 5. Make a new dashboard with mqtt as a datasource and subscribe to your topics.   
 6. After that you are up and running.  
