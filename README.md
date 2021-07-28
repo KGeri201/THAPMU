@@ -65,7 +65,7 @@ Adafruit_BME280 sensor;
 4. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) 
 5. To get the data from the MQTT broker you have multiple optoions:  
     - Use [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource). For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
-    - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/)
+    - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).
 6. Make a new dashboard with MQTT as a datasource and subscribe to your topics.  
 There are three topics:  
    - THAPMU/**LOCATION**/**NAME**/temperature   
@@ -75,7 +75,6 @@ There are three topics:
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
 ## Credits
-[Random Nerd Tutorials](https://randomnerdtutorials.com)  
 [HimbeersaftLP](https://github.com/HimbeersaftLP)  
 [KGeri201](https://github.com/KGeri201)  
 
