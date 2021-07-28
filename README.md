@@ -68,9 +68,9 @@ Adafruit_BME280 sensor;
     - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/)
 6. Make a new dashboard with MQTT as a datasource and subscribe to your topics.  
 There are three topics:  
-   - LOCATION/NAME/temperature   
-   - LOCATION/NAME/humidity
-   - LOCATION/NAME/pressure
+   - THAPMU/**LOCATION**/**NAME**/temperature   
+   - THAPMU/**LOCATION**/**NAME**/humidity
+   - THAPMU/**LOCATION**/**NAME**/pressure
 7. You are up and running.  
 Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
 
