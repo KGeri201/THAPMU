@@ -62,9 +62,12 @@ Adafruit_BME280 sensor;
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
       - follow the instructions of your board. 
-4. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) equipped with a [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource).  
-For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0).  
-5. Make a new dashboard with MQTT as a datasource and subscribe to your topics.  
+4. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) 
+5. To get the data from the MQTT broker you have multiple optoions:  
+    - Use [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource).  
+    For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
+    - Or you can build a [MQTT-InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/)
+6. Make a new dashboard with MQTT as a datasource and subscribe to your topics.  
 There are three topics:  
    - LOCATION/NAME/temperature   
    - LOCATION/NAME/humidity
