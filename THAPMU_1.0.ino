@@ -35,9 +35,9 @@ Adafruit_BME280 sensor;
 #define Interval 10
 
 // Temperature MQTT Topics
-const String MQTT_PUB_TEMP = String(LOCATION) + "/" + String(NAME)+ "/temperature";
-const String MQTT_PUB_HUM = String(LOCATION) + "/" + String(NAME) + "/humidity";
-const String MQTT_PUB_PRES = String(LOCATION) + "/" + String(NAME) + "/pressure";
+const String MQTT_PUB_TEMP = "THAPMU/" + String(LOCATION) + "/" + String(NAME)+ "/temperature";
+const String MQTT_PUB_HUM = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/humidity";
+const String MQTT_PUB_PRES = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/pressure";
 
 // Variables to hold sensor readings
 float temp;
