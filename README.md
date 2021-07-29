@@ -13,7 +13,7 @@ To be as easy to use as possible I also wanted to add a serial adapter to the wh
 But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any that I was able to have in less than two months. It was either sold out or the delivery would have taken more than my patience could handle.  
 So sadly I had to make everything even cheaper and easier.  
 I only put a voltage regulator and a usb type c connector on to the board. This should not be a huge problem, because the ESP needs to be flashed only once. To do this a seperate serial adapter is needed.  
-(For you I even provided the layout and schematic of the PCB with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
+(I also provided the layout and schematic of the PCB with a serial adapter. If you are lucky enough to get your hands on a CH340C, then you can make that version of this project.)
 
 ## Hardware
 This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).  
