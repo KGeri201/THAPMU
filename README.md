@@ -8,7 +8,7 @@ I searched on the internet and I found a very good looking sensor and ESP combo.
 It was not perfect but looked promising.
 I read the reviews about it and I was very disapointed.
 I thought, it should not be that hard to combine an ESP WLan module and a measurement instrument.  
-I decided for an ESP-01 and for a BME280 sensor, because of his wide range of usability.
+I decided for an ESP-01 and for a BME280 sensor, because of his wide range of usability and accuracy.
 To be as easy to use as possible I also wanted to add a serial adapter to the whole thing, to make the user able to flash the ESP easily, without the need of removing it from the board.  
 But it was only a dream. I wanted to use the CH340C chip as a serial adapter, but I could not find any that I was able to have in less than two months. It was either sold out or the delivery would have taken more than my patience could handle.  
 So sadly I had to make everything even cheaper and easier.  
