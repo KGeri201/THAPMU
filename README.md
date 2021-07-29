@@ -42,7 +42,8 @@ I only modified it a little to make it a perfect fit.
 // Sensor I2C
 Adafruit_BME280 sensor;
 ```
-2. Fill in your WLAN SSID and password, and also the address of the MQTT broker. Add the location of the device if you want.
+2. Fill in your WLAN SSID and password, and also the address of the MQTT broker.   
+Add the location and the name of the device.
 ```ino
 #define NAME "NAME_OF_THE_DEVICE"
 #define LOCATION "LOCATION_OF_THE_DEVICE"
