@@ -67,7 +67,8 @@ Add the location and the name of the device.
 5. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) 
 6. To get the data from the MQTT broker you have multiple optoions:  
     - Use [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource). For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
-    - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/). (The [script](https://github.com/KGeri201/THAPMU/blob/main/MQTTInfluxDBBridge.py) is in the repository. Do not forget to download and enable the [service](https://github.com/KGeri201/THAPMU/blob/main/mqttinfluxdbbridge.service) for the script))
+    - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).  
+    (The [script](https://github.com/KGeri201/THAPMU/blob/main/MQTTInfluxDBBridge.py) is in the repository. Do not forget to download and enable the [service](https://github.com/KGeri201/THAPMU/blob/main/mqttinfluxdbbridge.service) for the script)
 7. Make a new dashboard with [MQTT](https://en.wikipedia.org/wiki/MQTT) or [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) as a datasource and choose the measurement.  
 There are three topics:  
    - THAPMU/**LOCATION**/**NAME**/temperature   
