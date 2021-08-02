@@ -1,5 +1,5 @@
 [Unit]
-Description=My test service
+Description=Service to automatically start the MQTT to InfluxDB Bridge
 After=multi-user.target
 
 [Service]
