@@ -63,17 +63,17 @@ Add the location and the name of the device.
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
       - follow the instructions of your board. 
-4. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) 
-5. To get the data from the MQTT broker you have multiple optoions:  
+4. Plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
+5. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) 
+6. To get the data from the MQTT broker you have multiple optoions:  
     - Use [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource). For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
     - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/). (The [script](https://github.com/KGeri201/THAPMU/blob/main/MQTTInfluxDBBridge.py) is in the repository.)
-6. Make a new dashboard with [MQTT](https://en.wikipedia.org/wiki/MQTT) or [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) as a datasource and choose the measurement.  
+7. Make a new dashboard with [MQTT](https://en.wikipedia.org/wiki/MQTT) or [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) as a datasource and choose the measurement.  
 There are three topics:  
    - THAPMU/**LOCATION**/**NAME**/temperature   
    - THAPMU/**LOCATION**/**NAME**/humidity
    - THAPMU/**LOCATION**/**NAME**/pressure
-7. You are up and running.  
-Just plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
+8. You are up and running.  
 
 ## Credits
 [HimbeersaftLP](https://github.com/HimbeersaftLP)  
