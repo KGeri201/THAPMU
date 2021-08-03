@@ -101,13 +101,13 @@ void onMqttUnsubscribe(uint16_t packetId) {
   Serial.println("Unsubscribe acknowledged.");
   Serial.print("  packetId: ");
   Serial.println(packetId);
-}*/
+}
 
 void onMqttPublish(uint16_t packetId) {
   Serial.print("Publish acknowledged.");
   Serial.print("  packetId: ");
   Serial.println(packetId);
-}
+}*/
 
 void setup() {
   Serial.begin(115200);
@@ -129,7 +129,7 @@ void setup() {
   mqttClient.onDisconnect(onMqttDisconnect);
   //mqttClient.onSubscribe(onMqttSubscribe);
   //mqttClient.onUnsubscribe(onMqttUnsubscribe);
-  mqttClient.onPublish(onMqttPublish);
+  //mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
   // If your broker requires authentication (username and password), set them below
   //mqttClient.setCredentials("REPlACE_WITH_YOUR_USER", "REPLACE_WITH_YOUR_PASSWORD");
@@ -141,17 +141,14 @@ void loop() {
   // Publish an MQTT message on topic esp/sensor/temperature
   uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP.c_str(), 1, true, String(sensor.readTemperature()).c_str()); //temp = 1.8*sensor.readTemperature() + 32                        
   Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_TEMP, packetIdPub1);
-  Serial.printf("Message: %.2f \n", temp);
 
   // Publish an MQTT message on topic esp/sensor/humidity
   uint16_t packetIdPub2 = mqttClient.publish(MQTT_PUB_HUM.c_str(), 1, true, String(sensor.readHumidity()).c_str());                            
   Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_HUM, packetIdPub2);
-  Serial.printf("Message: %.2f \n", hum);
 
   // Publish an MQTT message on topic esp/sensor/pressure
   uint16_t packetIdPub3 = mqttClient.publish(MQTT_PUB_PRES.c_str(), 1, true, String(sensor.readPressure()/100.0F).c_str());                            
   Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_PRES, packetIdPub3);
-  Serial.printf("Message: %.3f \n", pres);
   
   // wait before reading te sensors again
   delay(Interval *1000);
