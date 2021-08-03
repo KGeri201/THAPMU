@@ -19,7 +19,7 @@ I only put a voltage regulator and a usb type c connector on to the board. This 
 This is a very simple project. As a basis I took inspiration of the [SparkFun Serial Basic Breakout - CH340C and USB-C](https://www.sparkfun.com/products/15096).  
 I modified the circuit and the layout to fit the requirements of the ESP and the sensor. I also replaced some of the electronics with their easier-to-get and easier-to-solder counterparts.
 To keep the project as simple as possible I did not integrate the ESP and the sensor.
-They are both normal breakout boards to plug into the modified serial adapter.
+They are both normal breakout boards to plug into the modified serial adapter. (Hint: ESP sits on the top side, Sensor is on the bottom.)
 
 ## Software
 I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my use.  
