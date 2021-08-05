@@ -39,11 +39,6 @@ const String MQTT_PUB_TEMP = "THAPMU/" + String(LOCATION) + "/" + String(NAME)+ 
 const String MQTT_PUB_HUM = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/humidity";
 const String MQTT_PUB_PRES = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/pressure";
 
-// Variables to hold sensor readings
-float temp;
-float hum;
-float pres;
-
 AsyncMqttClient mqttClient;
 Ticker mqttReconnectTimer;
 
