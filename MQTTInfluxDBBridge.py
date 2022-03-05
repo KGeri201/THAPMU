@@ -5,9 +5,9 @@ import paho.mqtt.client as mqtt
 from influxdb import InfluxDBClient
 
 INFLUXDB_ADDRESS = 'localhost'
-INFLUXDB_USER = 'mqtt'
-INFLUXDB_PASSWORD = 'mqtt'
-INFLUXDB_DATABASE = 'mqtt_data'
+INFLUXDB_USER = 'db_user'
+INFLUXDB_PASSWORD = 'db_pwd'
+INFLUXDB_DATABASE = 'db_name'
 
 MQTT_ADDRESS = 'localhost'
 MQTT_USER = ''
