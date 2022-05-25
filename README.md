@@ -79,7 +79,7 @@ There are three topics:
 8. You are up and running.  
 
 ## Credits
-[HimbeersaftLP](https://github.com/HimbeersaftLP)  
+[Apache License 2.0](https://github.com/HimbeersaftLP)  
 [KGeri201](https://github.com/KGeri201)  
 
 ## License
