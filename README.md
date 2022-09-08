@@ -83,7 +83,7 @@ There are three topics:
 [KGeri201](https://github.com/KGeri201)  
 
 ## License
-[GNU GENERAL PUBLIC LICENSE](https://choosealicense.com/licenses/gpl-3.0/)
+[GNU GENERAL PUBLIC LICENSE](LICENSE)
 
 ## Project status
 Ready to deploy.
