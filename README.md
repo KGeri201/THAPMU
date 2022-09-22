@@ -29,6 +29,7 @@ I only modified it a little to make it a perfect fit.
 
 ## Installation
 ### Docker
+Will follow in the future.
 ### Manual
 #### Requirements
 * 1 THAPMU board (fully fitted, and ready to use)
