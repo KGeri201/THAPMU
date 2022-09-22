@@ -27,8 +27,10 @@ They are both normal breakout boards to plug into the modified serial adapter. (
 I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my use.  
 I only modified it a little to make it a perfect fit.  
 
-## Manual
-### Requirements
+## Installation
+### Docker
+### Manual
+#### Requirements
 * 1 THAPMU board (fully fitted, and ready to use)
 * 1 ESP01 breakout board
 * 1 BME or BMP sensor
@@ -36,7 +38,7 @@ I only modified it a little to make it a perfect fit.
   then you will need an extra external serial adapter to flash your ESP
 * Also an USB-C cable to power the board.
 
-### Instructions
+#### Instructions
 1. Open the code for the ESP and change the library according to your sensor.  
 ```ino
 #include <Adafruit_BME280.h>
