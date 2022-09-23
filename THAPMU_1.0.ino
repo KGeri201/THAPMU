@@ -117,6 +117,12 @@ void setup() {
     while (1);
   }
   
+  sensor.setSampling(Adafruit_BME280::MODE_NORMAL,     /* Operating Mode. */
+                     Adafruit_BME280::SAMPLING_X2,     /* Temp. oversampling */
+                     Adafruit_BME280::SAMPLING_X16,    /* Pressure oversampling */
+                     Adafruit_BME280::FILTER_X16,      /* Filtering. */
+                     Adafruit_BME280::STANDBY_MS_500); /* Standby time. */
+  
   wifiConnectHandler = WiFi.onStationModeGotIP(onWifiConnect);
   wifiDisconnectHandler = WiFi.onStationModeDisconnected(onWifiDisconnect);
 
