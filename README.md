@@ -33,7 +33,7 @@ Will follow in the future.
 ### Manual
 Download and execute setup.sh
 ```sh
-wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh | bash
+wget -O setup.sh https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh | bash
 ```
 
 It will install all the needed packages
