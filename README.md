@@ -35,18 +35,20 @@ Download the setup.sh with wget or any other way.
 ```sh
 wget -O setup.sh https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh
 ```
-Make sure it is executable.
-```sh
-chmod +x setup.sh
-```
 And execute it.
 ```sh
 ./setup.sh
 ```
-
-It will install all the needed packages
+#### Step by step
+All the needed packages will be installed
 ```sh
-apt-get install -y influxdb influxdb-client wget python3 python3-pip
+apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients wget python3 python3-pip grafana-enterprise
+```
+All the neded files will be downloaded.
+```sh
+sudo wget -q -O requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
+sudo wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
+sudo wget -q -O /etc/systemd/system/mqttinfluxdbbridge.service https://raw.githubusercontent.com/KGeri201/THAPMU/main/mqttinfluxdbbridge.service
 ```
 
 ## Sensor
