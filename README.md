@@ -31,7 +31,10 @@ I only modified it a little to make it a perfect fit.
 ### Docker
 Will follow in the future.
 ### Manual
-#### Requirements
+
+
+## Sensor
+### Requirements
 * 1 THAPMU board (fully fitted, and ready to use)
 * 1 ESP01 breakout board
 * 1 BME or BMP sensor
@@ -39,7 +42,7 @@ Will follow in the future.
   then you will need an extra external serial adapter to flash your ESP
 * Also an USB-C cable to power the board.
 
-#### Instructions
+### Instructions
 1. Open the code for the ESP and change the library according to your sensor.  
 ```ino
 #include <Adafruit_BME280.h>
