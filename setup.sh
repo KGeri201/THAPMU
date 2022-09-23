@@ -30,10 +30,19 @@ do
   read [db_user]
 done
 sudo sed -i "s|INFLUXDB_USER = 'db_user'|INFLUXDB_USER =  '$db_user'|g" MQTTInfluxDBBridge.py
-until [${#db_pwd} > 0]
+until [${#db_pwd} <= 0 || $db_pwd != $db_pwd_ctrl]
 do
-  echo "Password for your user: "
-  read [db_pwd]
+  until [${#db_pwd} > 0]
+  do
+    echo "Password for your user: "
+    read -s [db_pwd]
+  done
+  echo "Repeat the password: "
+  read -s [db_pwd_ctrl]
+  if [$db_pwd != $db_pwd_ctrl]
+  then
+    echo "Passwords do nto match!"
+  fi
 done
 sudo sed -i "s|INFLUXDB_PASSWORD = 'db_pwd'|INFLUXDB_PASSWORD = '$db_pwd'|g" MQTTInfluxDBBridge.py
 
