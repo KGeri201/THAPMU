@@ -23,7 +23,7 @@ do
   fi
 done
 
-printf ""
+echo ""
 
 sudo printf "\nInstalling packages...\n"
 #sudo apt-get install -y apt-transport-https -qq
@@ -59,22 +59,23 @@ sudo systemctl start influxdb
 ## Enable http endpoint
 sudo sed '/#enabled = true/s/^#//' -i /etc/influxdb/influxdb.conf
 ## Restart influxdb service
-sudo systemctl restart influxdb
+
 ## Create Database to store measurements
 ## Set name of the database
 
 #influx
-##
-#CREATE DATABASE mqtt_data
-#USE mqtt_data
-#CREATE USER mqtt WITH PASSWORD ‘mqtt’
-#GRANT ALL ON mqtt_data TO mqtt
+#CREATE DATABASE "$db_name"
+#USE "$db_name"
+#CREATE USER "$db_user" WITH PASSWORD "$db_pwd"
+#GRANT ALL ON "$db_name" TO "$db_user"
+#EXIT
 
 sudo influx -execute 'CREATE DATABASE "$db_name"; USE "$db_name"; CREATE USER "$db_user" WITH PASSWORD "$db_pwd"; GRANT ALL ON "$db_name" TO "$db_user"'
 
 printf "Starting services...\n"
 #sudo systemctl enable mosquitto
 sudo systemctl start mosquitto
+sudo systemctl restart influxdb
 sudo systemctl enable mqttinfluxdbbridge
 sudo systemctl start mqttinfluxdbbridge
 sudo service grafana-server start
