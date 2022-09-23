@@ -31,7 +31,15 @@ I only modified it a little to make it a perfect fit.
 ### Docker
 Will follow in the future.
 ### Manual
+Download and execute setup.sh
+```sh
+wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh | bash
+```
 
+It will install all the needed packages
+```sh
+apt-get install -y influxdb influxdb-client wget python3 python3-pip
+```
 
 ## Sensor
 ### Requirements
