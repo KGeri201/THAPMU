@@ -31,9 +31,17 @@ I only modified it a little to make it a perfect fit.
 ### Docker
 Will follow in the future.
 ### Manual
-Download and execute setup.sh
+Download the setup.sh with wget or any other way.
 ```sh
-wget -O setup.sh https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh | bash
+wget -O setup.sh https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh
+```
+Make sure it is executable.
+```sh
+chmod +x setup.sh
+```
+And execute it.
+```sh
+./setup.sh
 ```
 
 It will install all the needed packages
