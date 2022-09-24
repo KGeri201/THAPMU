@@ -1,12 +1,17 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]
+  then echo "Please run as root"
+  exit
+fi
+
 echo "  _____ _  _   _   ___ __  __ _   _ "
 echo " |_   _| || | /_\ | _ \  \/  | | | |"
 echo "   | | | __ |/ _ \|  _/ |\/| | |_| |"
 echo "   |_| |_||_/_/ \_\_| |_|  |_|\___/ "
 
 getSettings() {
-  printf "\n\n-------------- SETTINGS --------------\n"
+  printf "\n\n--------------- SETUP ---------------\n"
 
   until [ ${#db_name} -gt 0 ]
   do 
@@ -88,11 +93,21 @@ startServices() {
   systemctl restart influxdb
   systemctl enable mqttinfluxdbbridge
   systemctl start mqttinfluxdbbridge
-  service grafana-server start
+  systemctl start grafana-server
 }
 
 startServicesDocker() {
   printf "Starting services...\n"
+  /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf &
+  /usr/bin/influxd -config /etc/influxdb/influxdb.conf &
+  /usr/bin/python3 /root/MQTTInfluxDBBridge.py &
+  /usr/sbin/grafana-server  --config=/etc/grafana/grafana.ini \
+                            --pidfile=/run/grafana/grafana-server.pid \
+                            --packaging=deb \
+                            cfg:default.paths.logs=/var/log/grafana \
+                            cfg:default.paths.data=/var/lib/grafana \
+                            cfg:default.paths.plugins=/var/lib/grafana/plugins \
+                            cfg:default.paths.provisioning=/etc/grafana/provisioning &
 }
 
 finish() {
@@ -109,23 +124,25 @@ if [ "$1" = "setup" ] || [ -z "$1" ]
 then
   getSettings
 fi
-printf "\n\n-------------- INSTALL --------------\n"
 if [ "$1" = "install" ] || [ -z "$1" ]
 then
+  printf "\n\n-------------- INSTALL --------------\n"
   install
   installRequirements
   download
 fi
 if [ "$1" = "setup" ] || [ -z "$1" ]
 then
-  printf "\n--------------- SETUP ---------------\n"
+  printf "\n------------- CONFIGURE -------------\n"
   configureSkript
 fi
 if [ -z "$1" ]
 then
+  printf "\n--------------- START ---------------\n"
   startServices
 elif [ "$1" = "start" ]
 then
+  printf "\n--------------- START ---------------\n"
   startServicesDocker
 fi
 printf "\n---------------- DONE ----------------\n"
