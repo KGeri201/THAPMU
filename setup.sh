@@ -137,14 +137,10 @@ then
   printf "\n------------- CONFIGURE -------------\n"
   configureSkript
 fi
-if [ -z "$1" ]
+if [ "$1" = "start" ] || [ -z "$1" ]
 then
   printf "\n--------------- START ---------------\n"
   startServices
-elif [ "$1" = "start" ]
-then
-  printf "\n--------------- START ---------------\n"
-  startServicesDocker
 fi
 printf "\n---------------- DONE ----------------\n"
 if [ "$1" = "start" ] || [ -z "$1" ]
