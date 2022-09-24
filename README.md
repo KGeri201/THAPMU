@@ -39,7 +39,7 @@ wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/docker-compose.yml
 ```
 Execute the docker-compose.yml 
 ```sh
-
+docker compose up -d
 ```
 or do it manually
 ```sh
