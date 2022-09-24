@@ -141,7 +141,7 @@ then
   printf "Starting services...\n"
   startServices
 fi
-printf "\n--------------- DONE ---------------\n"
+printf "\n--------------- DONE ----------------\n"
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   finish
