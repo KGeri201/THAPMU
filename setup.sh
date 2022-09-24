@@ -46,7 +46,7 @@ install() {
   wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
   echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/enterprise/deb stable main" | tee /etc/apt/sources.list.d/grafana.list >/dev/null
 
-  apt-get update
+  apt-get update -qq
 
   # Install Influxdb, mosquitto, python3 and grafana
   apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients python3 python3-pip grafana-enterprise -qq
