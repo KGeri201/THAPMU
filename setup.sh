@@ -137,11 +137,11 @@ then
 fi
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
-  printf "\n--------------- START ---------------\n"
+  printf "\n--------------- START ----------------\n"
   printf "Starting services...\n"
   startServices
 fi
-printf "\n---------------- DONE ----------------\n"
+printf "\n--------------- DONE ----------------\n"
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   finish
