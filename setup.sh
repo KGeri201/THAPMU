@@ -6,7 +6,7 @@ echo "   | | | __ |/ _ \|  _/ |\/| | |_| |"
 echo "   |_| |_||_/_/ \_\_| |_|  |_|\___/ "
 
 getSettings() {
-  printf "\n-------------- SETTINGS --------------\n"
+  printf "\n\n-------------- SETTINGS --------------\n"
 
   until [ ${#db_name} -gt 0 ]
   do 
@@ -91,6 +91,10 @@ startServices() {
   service grafana-server start
 }
 
+startServicesDocker() {
+  printf "Starting services...\n"
+}
+
 finish() {
   printf "\n##########################################################################\n"
   printf "# Visit                                                                  #\n"
@@ -105,7 +109,7 @@ if [ "$1" = "setup" ] || [ -z "$1" ]
 then
   getSettings
 fi
-printf "\n--------------- SETUP ---------------\n"
+printf "\n\n-------------- INSTALL --------------\n"
 if [ "$1" = "install" ] || [ -z "$1" ]
 then
   install
@@ -114,13 +118,17 @@ then
 fi
 if [ "$1" = "setup" ] || [ -z "$1" ]
 then
+  printf "\n--------------- SETUP ---------------\n"
   configureSkript
 fi
-if [ "$1" = "start" ] || [ -z "$1" ]
+if [ -z "$1" ]
 then
   startServices
+elif [ "$1" = "start" ]
+then
+  startServicesDocker
 fi
-printf "Done\n"
+printf "\n---------------- DONE ----------------\n"
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   finish
