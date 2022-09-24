@@ -46,7 +46,7 @@ or do it manually
 docker build -t thapmu .
 ```
 ```sh
-docker run -it --rm --name thapmu -p 1883:1883/tcp -p 3000:3000/tcp -v $PWD:/usr/src/app --restart always thapmu
+docker run -it --rm --name thapmu -p 1883:1883/tcp -p 3000:3000/tcp -v $PWD:/usr/src/app thapmu
 ```
 
 ### Manual
