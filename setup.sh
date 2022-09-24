@@ -69,6 +69,7 @@ installRequirements() {
   wget -q -O requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
   # Install python3 libraries
   pip3 -q install -r requirements.txt
+  rm requirements.txt
 }
 
 setUpDatabase() {
@@ -137,7 +138,7 @@ then
 fi
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
-  printf "\n--------------- START ---------------\n"
+  printf "\n--------------- START ----------------\n"
   printf "Starting services...\n"
   startServices
 fi
