@@ -29,11 +29,30 @@ I only modified it a little to make it a perfect fit.
 
 ## Installation
 ### Docker
-Will follow in the future.
+Download the Dockerfile
+```sh
+wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/Dockerfile
+```
+Optionally you can download and use the docker-compose file
+```sh
+wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/docker-compose.yml
+```
+Execute the docker-compose.yml 
+```sh
+
+```
+or do it manually
+```sh
+docker build -t thapmu .
+```
+```sh
+docker run -it --rm --name thapmu -p 1883:1883/tcp -p 3000:3000/tcp -v $PWD:/usr/src/app --restart always thapmu
+```
+
 ### Manual
 Download the setup.sh with wget or any other way.
 ```sh
-wget -O setup.sh https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh
+wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh
 ```
 And execute it as sudo
 ```sh
