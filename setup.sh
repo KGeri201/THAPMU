@@ -39,7 +39,7 @@ getSettings() {
 }
 
 install() {
-  printf "Installing packages...\n"
+  printf "Installing packages ...\n"
   #sudo apt-get install -y apt-transport-https -qq
   #sudo apt-get install -y software-properties-common wget -qq
   apt-get install -y wget -qq
@@ -51,13 +51,13 @@ install() {
 } 
 
 download() {
-  printf "Downloading python skript...\n"
+  printf "Downloading python skript ...\n"
   # Download MQTTInfluxDBBridge from github
   wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
 }
 
 configureSkript() {
-  printf "Configuring skript...\n"
+  printf "Configuring skript ...\n"
   # Set database, user and password
   sed -i "s|INFLUXDB_DATABASE = 'db_name'|INFLUXDB_DATABASE = '$db_name'|g" MQTTInfluxDBBridge.py
   sed -i "s|INFLUXDB_PASSWORD = 'db_pwd'|INFLUXDB_PASSWORD = '$db_pwd'|g" MQTTInfluxDBBridge.py
@@ -65,7 +65,7 @@ configureSkript() {
 }
 
 installRequirements() {
-  printf "Installing python libraries...\n"
+  printf "Installing python libraries ...\n"
   wget -q -O requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
   # Install python3 libraries
   pip3 -q install -r requirements.txt
@@ -73,7 +73,7 @@ installRequirements() {
 }
 
 setUpDatabase() {
-  printf "Setting up the database...\n"
+  printf "Setting up the database ...\n"
   # Setup Influxdb
   ## Enable http endpoint
   sed -i -r ':a;N;$!ba;s/\[http\]\n([^\n]*)\n  # enabled = true/\[http\]\n\1\n  enabled = true/g' /etc/influxdb/influxdb.conf
@@ -139,7 +139,7 @@ fi
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   printf "\n--------------- START ---------------\n"
-  printf "Starting services...\n"
+  printf "Starting services ...\n"
   startServices
 fi
 printf "\n--------------- DONE ----------------\n"
