@@ -86,7 +86,6 @@ setUpDatabase() {
 }
 
 startServices() {
-  printf "Starting services...\n"
   wget -q -O /etc/systemd/system/mqttinfluxdbbridge.service https://raw.githubusercontent.com/KGeri201/THAPMU/main/mqttinfluxdbbridge.service
   sed -i "s|/root|$PWD|g" /etc/systemd/system/mqttinfluxdbbridge.service
   #sudo systemctl enable mosquitto
@@ -98,7 +97,6 @@ startServices() {
 }
 
 startServicesDocker() {
-  printf "Starting services...\n"
   /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf &
   /usr/bin/influxd -config /etc/influxdb/influxdb.conf &
   /usr/bin/python3 /root/MQTTInfluxDBBridge.py &
@@ -140,6 +138,7 @@ fi
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   printf "\n--------------- START ---------------\n"
+  printf "Starting services...\n"
   startServices
 fi
 printf "\n---------------- DONE ----------------\n"
