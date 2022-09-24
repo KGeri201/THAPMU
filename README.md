@@ -35,9 +35,9 @@ Download the setup.sh with wget or any other way.
 ```sh
 wget -O setup.sh https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh
 ```
-And execute it.
+And execute it as sudo
 ```sh
-./setup.sh
+sudo ./setup.sh
 ```
 #### Step by step
 All the needed packages will be installed
