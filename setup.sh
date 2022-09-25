@@ -102,10 +102,10 @@ startServices() {
 }
 
 startServicesDocker() {
-  /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf & \
-  /usr/bin/influxd -config /etc/influxdb/influxdb.conf & \
-  /usr/bin/python3 /root/MQTTInfluxDBBridge.py & \
-  /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini -homepath /usr/share/grafana &
+  (/usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf &) && \
+  (/usr/bin/influxd -config /etc/influxdb/influxdb.conf &) && \
+  (/usr/bin/python3 /root/MQTTInfluxDBBridge.py &) && \
+  (/usr/sbin/grafana-server --config=/etc/grafana/grafana.ini -homepath /usr/share/grafana &)
 }
 
 finish() {
