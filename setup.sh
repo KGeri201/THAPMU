@@ -56,8 +56,13 @@ install() {
 
 download() {
   printf "Downloading python skript ...\n"
-  # Download MQTTInfluxDBBridge from github
-  wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
+  if test -f "MQTTInfluxDBBridge.py" 
+  then
+    printf "Found skript, skipping ...\n"
+  else
+    # Download MQTTInfluxDBBridge from github
+    wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
+  fi
 }
 
 configureSkript() {
