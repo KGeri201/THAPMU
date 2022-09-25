@@ -49,7 +49,7 @@ install() {
   apt-get update -qq
 
   # Install Influxdb, mosquitto, python3 and grafana
-  apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients python3 python3-pip grafana-enterprise -qq
+  apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients python3 python3-pip grafana-enterprise --no-install-recommends -qq
 
   echo "listener 1883" > /etc/mosquitto/conf.d/allow.conf && echo "allow_anonymous true" >> /etc/mosquitto/conf.d/allow.conf
 } 
