@@ -105,13 +105,7 @@ startServicesDocker() {
   /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf & \
   /usr/bin/influxd -config /etc/influxdb/influxdb.conf & \
   /usr/bin/python3 /root/MQTTInfluxDBBridge.py & \
-  /usr/sbin/grafana-server  --config=/etc/grafana/grafana.ini \
-                            --pidfile=/run/grafana/grafana-server.pid \
-                            --packaging=deb \
-                            cfg:default.paths.logs=/var/log/grafana \
-                            cfg:default.paths.data=/var/lib/grafana \
-                            cfg:default.paths.plugins=/var/lib/grafana/plugins \
-                            cfg:default.paths.provisioning=/etc/grafana/provisioning &
+  /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini -homepath /usr/share/grafana &
 }
 
 finish() {

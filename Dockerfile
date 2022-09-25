@@ -13,7 +13,7 @@ RUN wget -q -O /usr/bin/thapmu https://raw.githubusercontent.com/KGeri201/THAPMU
 RUN thapmu install && \
     sed -i "s|pid_file /run/mosquitto/mosquitto.pid|#pid_file /run/mosquitto/mosquitto.pid|g" /etc/mosquitto/mosquitto.conf
 
-#CMD ["thapmu", "start"]
+CMD ["thapmu", "start"]
 
 EXPOSE 1883/tcp
 EXPOSE 3000/tcp
