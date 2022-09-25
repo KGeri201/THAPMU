@@ -42,7 +42,7 @@ install() {
   printf "Installing packages ...\n"
   #apt-get install -y apt-transport-https -qq
   #apt-get install -y software-properties-common wget -qq
-  apt-get install -y wget -qq
+  apt-get install -y wget --no-install-recommends -qq
   wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
   echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/enterprise/deb stable main" | tee /etc/apt/sources.list.d/grafana.list >/dev/null
 
@@ -55,18 +55,18 @@ install() {
 } 
 
 download() {
-  printf "Downloading python skript ...\n"
-  if test -f "MQTTInfluxDBBridge.py" 
+  printf "Downloading python script ...\n"
+  if [ -f "MQTTInfluxDBBridge.py" ]
   then
-    printf "Found skript, skipping ...\n"
+    printf "Found script. Skipping ...\n"
   else
     # Download MQTTInfluxDBBridge from github
     wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
   fi
 }
 
-configureSkript() {
-  printf "Configuring skript ...\n"
+configurescript() {
+  printf "Configuring script ...\n"
   # Set database, user and password
   sed -i "s|INFLUXDB_DATABASE = 'db_name'|INFLUXDB_DATABASE = '$db_name'|g" MQTTInfluxDBBridge.py
   sed -i "s|INFLUXDB_PASSWORD = 'db_pwd'|INFLUXDB_PASSWORD = '$db_pwd'|g" MQTTInfluxDBBridge.py
@@ -81,6 +81,10 @@ installRequirements() {
   rm requirements.txt
 }
 
+backupDatabase() {
+  influxd backup -portable ./thapmu
+}
+
 setUpDatabase() {
   printf "Setting up the database ...\n"
   # Setup Influxdb
@@ -90,9 +94,22 @@ setUpDatabase() {
   systemctl enable influxdb 
   systemctl start influxdb
 
-  influx -execute "CREATE DATABASE $db_name"
-  influx -database "$db_name" -execute "CREATE USER $db_user WITH PASSWORD '$db_pwd'"
-  influx -database "$db_name" -execute "GRANT ALL ON $db_name TO $db_user"
+  if [ -d "thapmu" ]
+  then
+    printf "Found backup. Restoring ...\n"
+    influxd restore -portable ./thapmu
+  else
+    influx -execute "CREATE DATABASE $db_name"
+    influx -database "$db_name" -execute "CREATE USER $db_user WITH PASSWORD '$db_pwd'"
+    influx -database "$db_name" -execute "GRANT ALL ON $db_name TO $db_user"
+  fi
+
+  printf "Setting up backup for the database ...\n"
+  crontab -l | grep "0 0 * * * influxd backup -portable ./thapmu"
+  if [ $? -ne 0 ]
+  then
+    echo "0 0 * * * $PWD/$0 backup" | crontab
+  fi
 }
 
 startServices() {
@@ -125,7 +142,12 @@ finish() {
 
 if [ "$1" = "setup" ] || [ -z "$1" ]
 then
-  getSettings
+  if [ -f "MQTTInfluxDBBridge.py" ] && [ -d "thapmu" ]
+  then
+    printf "Existing script and database found. Restoring ..."
+  else
+    getSettings
+  fi
 fi
 if [ "$1" = "install" ] || [ -z "$1" ]
 then
@@ -137,13 +159,20 @@ fi
 if [ "$1" = "setup" ] || [ -z "$1" ]
 then
   printf "\n------------- CONFIGURE -------------\n"
-  configureSkript
+  configurescript
+  setUpDatabase
 fi
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   printf "\n--------------- START ---------------\n"
   printf "Starting services ...\n"
   startServices
+fi
+if [ "$1" = "backup" ]
+then
+  printf "\n-------------- BACKUP ---------------\n"
+  printf "Backing up all databases ...\n"
+  backupDatabase
 fi
 printf "\n--------------- DONE ----------------\n"
 if [ "$1" = "start" ] || [ -z "$1" ]

@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-RUN apt-get update -y && apt-get upgrade -y && apt-get install -y wget
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y wget cron --no-install-recommends
 
 COPY setup.sh /usr/bin/thapmu
 
