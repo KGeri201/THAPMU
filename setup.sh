@@ -40,8 +40,6 @@ getSettings() {
 
 install() {
   printf "Installing packages ...\n"
-  #apt-get install -y apt-transport-https -qq
-  #apt-get install -y software-properties-common wget -qq
   apt-get install -y wget --no-install-recommends -qq
   wget -q -O /usr/share/keyrings/grafana.key https://packages.grafana.com/gpg.key
   echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://packages.grafana.com/enterprise/deb stable main" | tee /etc/apt/sources.list.d/grafana.list >/dev/null
