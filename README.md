@@ -1,7 +1,7 @@
 <p align="center"><img src="THAPMU.svg" alt="Logo" height="200"/></P>
 
 # THAPMU
-THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**easurement **U**nit.
+THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**easurement **U**nit. ![Docker Pulls](https://img.shields.io/docker/pulls/kgeri201/thapmu)
 
 ## Story
 I wanted to monitor the temperature of several rooms and wanted to display all the measurements on one website.  
