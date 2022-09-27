@@ -75,10 +75,10 @@ configurescript() {
 
 installRequirements() {
   printf "Installing python libraries ...\n"
-  wget -q -O requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
+  wget -q -O /tmp/requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
   # Install python3 libraries
-  pip3 -q install -r requirements.txt
-  rm requirements.txt
+  pip3 -q install -r /tmp/requirements.txt
+  rm /tmp/requirements.txt
 }
 
 backupDatabase() {
