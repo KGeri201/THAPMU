@@ -57,6 +57,10 @@ Additional config will be added to mosquitto
 ```
 echo "listener 1883" > /etc/mosquitto/conf.d/allow.conf && echo "allow_anonymous true" >> /etc/mosquitto/conf.d/allow.conf
 ```
+Python libraries will also be installed  
+```
+pip3 -q install -r /tmp/requirements.txt
+```
 Database will be set up, and services will be started
 ```
 systemctl start mqttinfluxdbbridge
