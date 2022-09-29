@@ -30,25 +30,7 @@ I only modified it a little to make it a perfect fit.
 
 ## Installation
 ### Docker
-Download the Dockerfile
-```sh
-wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/Dockerfile
-```
-Optionally you can download and use the docker-compose file
-```sh
-wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/docker-compose.yml
-```
-Execute the docker-compose.yml 
-```sh
-docker compose up -d
-```
-or do it manually
-```sh
-docker build -t thapmu .
-```
-```sh
-docker run -it --rm --name thapmu -p 1883:1883/tcp -p 3000:3000/tcp -v $PWD:/usr/src/app thapmu
-```
+Follow the Guide on [Docker Hub](https://hub.docker.com/repository/docker/kgeri201/thapmu)
 
 ### Manual
 Download the setup.sh with wget or any other way.
@@ -60,15 +42,34 @@ And execute it as sudo
 sudo ./setup.sh
 ```
 #### Step by step
-All the needed packages will be installed
+Grafana will be added to apt sources.  
+All the needed packages will be installed  
 ```sh
-apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients wget python3 python3-pip grafana-enterprise
+apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients python3 python3-pip grafana-enterprise
 ```
 All the neded files will be downloaded.
 ```sh
-wget -q -O requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
+wget -q -O /tmp/requirements.txt https://raw.githubusercontent.com/KGeri201/THAPMU/main/requirements.txt
 wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
 wget -q -O /etc/systemd/system/mqttinfluxdbbridge.service https://raw.githubusercontent.com/KGeri201/THAPMU/main/mqttinfluxdbbridge.service
+```
+Additional config will be added to mosquitto  
+```
+echo "listener 1883" > /etc/mosquitto/conf.d/allow.conf && echo "allow_anonymous true" >> /etc/mosquitto/conf.d/allow.conf
+```
+Database will be set up, and services will be started
+```
+systemctl start mqttinfluxdbbridge
+systemctl start grafana-server
+systemctl restart influxdb
+systemctl start mosquitto
+```
+Additionaly you can also enable all the services to start automatically after starting the device  
+```
+systemctl enable mosquitto
+systemctl enable influxdb
+systemctl enable grafana-server
+systemctl enable mqttinfluxdbbridge
 ```
 
 ## Sensor
