@@ -113,12 +113,10 @@ setUpDatabase() {
 startServices() {
   wget -q -O /etc/systemd/system/mqttinfluxdbbridge.service https://raw.githubusercontent.com/KGeri201/THAPMU/main/mqttinfluxdbbridge.service
   sed -i "s|/root|$PWD|g" /etc/systemd/system/mqttinfluxdbbridge.service
-  #sudo systemctl enable mosquitto
-  systemctl start mosquitto
-  systemctl restart influxdb
-  systemctl enable mqttinfluxdbbridge
   systemctl start mqttinfluxdbbridge
   systemctl start grafana-server
+  systemctl restart influxdb
+  systemctl start mosquitto
 }
 
 startServicesDocker() {
