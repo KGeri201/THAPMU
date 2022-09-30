@@ -116,7 +116,7 @@ Add the location and the name of the device.
       - follow the instructions of your board. 
 4. Plug the board in somewhere and wait for it to connect to your WLAN and to the Server, which you previously set up (decribed under [Installation](https://github.com/KGeri201/THAPMU#installation)).
 5. Go to the [Grafana](https://grafana.com/) site, hosted on your server http://ip-of-your-server:3000 and login with the default credentials.
-6. Under the Configurations add the InfluxDB data source.  
+6. Under the Configurations add the [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) data source.  
   Fill in the name of the database, user and password.  
   These you have set during the setup process.
 7. Make a new dashboard with the newly added InfluxDB datasource and choose the measurement.  
