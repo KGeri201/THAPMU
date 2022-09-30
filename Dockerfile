@@ -4,11 +4,14 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificate
 
 COPY setup.sh /usr/bin/thapmu
 
+VOLUME [ "/usr/src/app" ]
+
 WORKDIR /usr/src/app
 
 RUN sed -i "s|  /usr/bin/python3 /root/MQTTInfluxDBBridge.py|  /usr/bin/python3 $PWD/MQTTInfluxDBBridge.py|g" /usr/bin/thapmu && \
-    sed -i "s|  startServices|  startServicesDocker|g" /usr/bin/thapmu && \
+    sed -i "s|  systemctl start influxdb|  /usr/bin/influxd -config /etc/influxdb/influxdb.conf &|g" /usr/bin/thapmu && \
     sed -i "s|  finish|  printf 'Everything is up and running.\n'|g" /usr/bin/thapmu && \
+    sed -i "s|  startServices|  startServicesDocker|g" /usr/bin/thapmu && \
     chmod +x /usr/bin/thapmu
     
 RUN thapmu install && \
@@ -18,5 +21,3 @@ CMD ["thapmu", "start"]
 
 EXPOSE 1883/tcp
 EXPOSE 3000/tcp
-
-VOLUME [ "/usr/src/app" ]

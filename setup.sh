@@ -59,7 +59,7 @@ download() {
     printf "Found script. Skipping ...\n"
   else
     # Download MQTTInfluxDBBridge from github
-    wget -q -O MQTTInfluxDBBridge.py https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
+    wget -q https://raw.githubusercontent.com/KGeri201/THAPMU/main/MQTTInfluxDBBridge.py
   fi
 }
 
@@ -89,7 +89,6 @@ setUpDatabase() {
   ## Enable http endpoint
   sed -i -r ':a;N;$!ba;s/\[http\]\n([^\n]*)\n  # enabled = true/\[http\]\n\1\n  enabled = true/g' /etc/influxdb/influxdb.conf
   ## Start influxdb service
-  systemctl enable influxdb 
   systemctl start influxdb
 
   if [ -d "thapmu" ]
