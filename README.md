@@ -33,13 +33,13 @@ I only modified it a little to make it a perfect fit.
 Follow the Guide on [Docker Hub](https://hub.docker.com/repository/docker/kgeri201/thapmu)
 
 ### Manual
-Download the setup.sh with wget or any other way.
+Download the thapmu.sh with wget or any other way.
 ```sh
-wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/setup.sh
+wget https://raw.githubusercontent.com/KGeri201/THAPMU/main/thapmu.sh
 ```
 And execute it as sudo
 ```sh
-sudo ./setup.sh
+sudo ./thapmu.sh
 ```
 #### Step by step
 Grafana will be added to apt sources.  
