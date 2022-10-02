@@ -93,8 +93,9 @@ systemctl enable mqttinfluxdbbridge
 // Sensor I2C
 Adafruit_BME280 sensor;
 ```
-2. Fill in your WLAN SSID and password, and also the address of the MQTT broker.   
-Add the location and the name of the device.
+2. Fill in your WLAN SSID and password, and the address of the MQTT broker.  
+   If your MQTT broker needs credentials to authenticate, set them.  
+   Also add the location and the name of the device.
 ```ino
 #define NAME "NAME_OF_THE_DEVICE"
 #define LOCATION "LOCATION_OF_THE_DEVICE"
@@ -106,6 +107,9 @@ Add the location and the name of the device.
 // For a cloud MQTT broker, type the domain name
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
+// If your MQTT broker requires authentication, set them below
+#define MQTT_USER ""
+#define MQTT_PASSWORD ""
 ``` 
 3. Flash the ESP.  
     - Using the version with the integrated serial adapter:  

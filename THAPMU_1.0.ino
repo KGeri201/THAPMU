@@ -28,6 +28,9 @@ Adafruit_BME280 sensor;
 // For a cloud MQTT broker, type the domain name
 //#define MQTT_HOST "example.com"
 #define MQTT_PORT 1883
+// If your MQTT broker requires authentication, set them below
+#define MQTT_USER ""
+#define MQTT_PASSWORD ""
 
 /*----------------------------------------------------------------------------------------------------------------------*/
 
@@ -133,7 +136,10 @@ void setup() {
   //mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
   // If your broker requires authentication (username and password), set them below
-  //mqttClient.setCredentials("REPlACE_WITH_YOUR_USER", "REPLACE_WITH_YOUR_PASSWORD");
+  if(MQTT_USER.length() > 0 && MQTT_PASSWORD.length() > 0) 
+  {
+    mqttClient.setCredentials(MQTT_USER, MQTT_PASSWORD);
+  }
   
   connectToWifi();
 }
