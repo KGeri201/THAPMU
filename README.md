@@ -114,13 +114,12 @@ Add the location and the name of the device.
       - Remove the jumper and plug the board out then in again to reset it.  
     - Using your own seperate serial adapter:  
       - follow the instructions of your board. 
-4. Plug the board in somewhere and wait for it to connect to your WLAN and to the MQTT broker.
-5. To display your data you will need to have a [MQTT broker](https://mosquitto.org/) and [grafana](https://grafana.com/) 
-6. To get the data from the MQTT broker you have multiple optoions:  
-    - Use [MQTT datasource plugin](https://github.com/grafana/mqtt-datasource). For that you can download [this _amazing_ docker](https://gist.github.com/HimbeersaftLP/82b2a1be7708ddcf71746cd86f2c5de0). 
-    - Or you can build a [MQTT to InfluxDB Bridge](https://diyi0t.com/visualize-mqtt-data-with-influxdb-and-grafana/).  
-    (The [script](https://github.com/KGeri201/THAPMU/blob/main/MQTTInfluxDBBridge.py) is in the repository. Do not forget to download and enable the [service](https://github.com/KGeri201/THAPMU/blob/main/mqttinfluxdbbridge.service) for the script)
-7. Make a new dashboard with [MQTT](https://en.wikipedia.org/wiki/MQTT) or [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) as a datasource and choose the measurement.  
+4. Plug the board in somewhere and wait for it to connect to your WLAN and to the Server, which you previously set up (decribed under [Installation](https://github.com/KGeri201/THAPMU#installation)).
+5. Go to the [Grafana](https://grafana.com/) site, hosted on your server http://ip-of-your-server:3000 and login with the default credentials.
+6. Under the Configurations add the [InfluxDB](https://www.influxdata.com/products/influxdb-overview/) data source.  
+  Fill in the name of the database, user and password.  
+  These you have set during the setup process.
+7. Make a new dashboard with the newly added InfluxDB datasource and choose the measurement.  
 There are three topics:  
    - THAPMU/**LOCATION**/**NAME**/temperature   
    - THAPMU/**LOCATION**/**NAME**/humidity
