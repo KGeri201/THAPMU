@@ -135,7 +135,7 @@ There are three topics:
 [KGeri201](https://github.com/KGeri201)  
 
 ## License
-[GNU GENERAL PUBLIC LICENSE](LICENSE)
+[Apache License 2.0](LICENSE)
 
 ## Project status
 Ready to deploy.
