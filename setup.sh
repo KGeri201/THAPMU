@@ -42,7 +42,7 @@ getSettings() {
       mqtt_user=$username
       mqtt_pwd=$passwd
       echo "$mqtt_user:$mqtt_pwd" > $PWD/mqtt_password.txt
-      mosquitto_passwd -U $PWD/mqtt_password.txt
+      encrypt_mqtt_credentials=true
     fi
   fi
 }
@@ -84,6 +84,11 @@ install() {
 
   echo "listener 1883" > /etc/mosquitto/conf.d/allow.conf 
   echo "allow_anonymous true" > /etc/mosquitto/conf.d/mqtt_auth.conf
+
+  if [ $encrypt_mqtt_credentials ]
+  then
+    mosquitto_passwd -U $PWD/mqtt_password.txt
+  fi
 } 
 
 download() {
