@@ -148,7 +148,7 @@ setUpDatabase() {
   fi
 
   printf "Setting up backup for the database ...\n"
-  crontab -l | grep "0 0 * * * influxd backup -portable ./thapmu"
+  #crontab -l | grep "0 0 * * * influxd backup -portable ./thapmu"
   if [ $? -ne 0 ]
   then
     echo "0 0 * * * $PWD/$0 backup" | crontab
