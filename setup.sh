@@ -18,24 +18,57 @@ getSettings() {
   do 
     read -p "Name of your database: " db_name
   done
-  until [ ${#db_user} -gt 0 ]
-  do
-    read -p "Name of your user: " db_user
-  done
-  until [ ${#db_pwd} -gt 0 ] && [ $db_pwd == $db_pwd_ctrl ]
-  do
-    until [ ${#db_pwd} -gt 0 ]
-    do
-      read -sp "Password for your user: " db_pwd
-    done
-    echo ""
-    read -sp "Repeat the password: " db_pwd_ctrl
-    if [ $db_pwd != $db_pwd_ctrl ]
+  getCredentials
+  db_user=$username
+  db_pwd=$passwd
+  use_mqtt_auth="X"
+  until [[ $use_mqtt_auth = "y" ]] || [[ $use_mqtt_auth = "Y" ]] || [[ $use_mqtt_auth = "n" ]] || [[ $use_mqtt_auth = "N" ]] || [[ $use_mqtt_auth = "" ]]
+  do 
+    if [ -f "$PWD/mqtt_password.txt" ]
     then
-      printf "\n\nPasswords do not match!\n\n"
-      db_pwd=""
+      use_mqtt_auth="Y"
+    else
+      read -p "Do you want to use authentication to connect to MQTT (y/N): " -n 1 use_mqtt_auth
+      printf "\n"
     fi
   done
+  if [[ $use_mqtt_auth = "y" ]] || [[ $use_mqtt_auth = "Y" ]]
+  then
+    if [ -f "$PWD/mqtt_password.txt" ]
+    then
+      printf "\nCredentials found for MQTT.\n"
+    else
+      getCredentials
+      mqtt_user=$username
+      mqtt_pwd=$passwd
+      echo "$mqtt_user:$mqtt_pwd" > $PWD/mqtt_password.txt
+      mosquitto_passwd -U $PWD/mqtt_password.txt
+    fi
+  fi
+}
+
+getCredentials() {
+  username=""
+  passwd=""
+  until [ ${#username} -gt 0 ]
+  do
+    read -p "Name of your user: " username
+  done
+  until [ ${#passwd} -gt 0 ] && [ $passwd == $passwd_ctrl ]
+  do
+    until [ ${#passwd} -gt 0 ]
+    do
+      read -sp "Password for your user: " passwd
+    done
+    printf "\n"
+    read -sp "Repeat the password: " passwd_ctrl
+    if [ $passwd != $passwd_ctrl ]
+    then
+      printf "\n\nPasswords do not match!\n\n"
+      passwd=""
+    fi
+  done
+  printf "\n"
 }
 
 install() {
@@ -49,7 +82,8 @@ install() {
   # Install Influxdb, mosquitto, python3 and grafana
   apt-get install -y influxdb influxdb-client mosquitto mosquitto-clients python3 python3-pip grafana-enterprise --no-install-recommends -qq
 
-  echo "listener 1883" > /etc/mosquitto/conf.d/allow.conf && echo "allow_anonymous true" >> /etc/mosquitto/conf.d/allow.conf
+  echo "listener 1883" > /etc/mosquitto/conf.d/allow.config 
+  #echo "allow_anonymous true" > /etc/mosquitto/conf.d/mqtt_auth.conf
 } 
 
 download() {
@@ -69,6 +103,13 @@ configurescript() {
   sed -i "s|INFLUXDB_DATABASE = 'db_name'|INFLUXDB_DATABASE = '$db_name'|g" MQTTInfluxDBBridge.py
   sed -i "s|INFLUXDB_PASSWORD = 'db_pwd'|INFLUXDB_PASSWORD = '$db_pwd'|g" MQTTInfluxDBBridge.py
   sed -i "s|INFLUXDB_USER = 'db_user'|INFLUXDB_USER = '$db_user'|g" MQTTInfluxDBBridge.py
+
+  if [[ $use_mqtt_auth = "y" ]] || [[ $use_mqtt_auth = "Y" ]]
+  then
+    sed -i "s|MQTT_USER = ''|MQTT_USER = '$mqtt_user'|g" MQTTInfluxDBBridge.py
+    sed -i "s|MQTT_PASSWORD = ''|MQTT_PASSWORD = '$mqtt_pwd'|g" MQTTInfluxDBBridge.py
+    sed -i "s|    #mqtt_client.username_pw_set(MQTT_USER, MQTT_PASSWORD)|    mqtt_client.username_pw_set(MQTT_USER, MQTT_PASSWORD)|g" MQTTInfluxDBBridge.py
+  fi
 }
 
 installRequirements() {
@@ -119,9 +160,9 @@ startServices() {
 }
 
 startServicesDocker() {
-  /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf &
-  /usr/bin/influxd -config /etc/influxdb/influxdb.conf &
-  /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini -homepath /usr/share/grafana &
+  /usr/sbin/mosquitto -c /etc/mosquitto/mosquitto.conf &>/dev/null &
+  /usr/bin/influxd -config /etc/influxdb/influxdb.conf &>/dev/null &
+  /usr/sbin/grafana-server --config=/etc/grafana/grafana.ini -homepath /usr/share/grafana &>/dev/null &
   /usr/bin/python3 /root/MQTTInfluxDBBridge.py
 }
 
@@ -135,6 +176,16 @@ finish() {
   printf "##########################################################################\n"
 }
 
+setUpMqtt() {
+  if [ -f "$PWD/mqtt_password.txt" ]
+  then
+    echo "allow_anonymous false" > /etc/mosquitto/conf.d/mqtt_auth.conf
+    echo "password_file $PWD/mqtt_password.txt" >> /etc/mosquitto/conf.d/mqtt_auth.conf
+  else
+    echo "allow_anonymous true" > /etc/mosquitto/conf.d/mqtt_auth.conf
+  fi
+}
+
 if [ "$1" = "setup" ] || [ -z "$1" ]
 then
   if [ -f "MQTTInfluxDBBridge.py" ] && [ -d "thapmu" ]
@@ -146,7 +197,7 @@ then
 fi
 if [ "$1" = "install" ] || [ -z "$1" ]
 then
-  printf "\n\n-------------- INSTALL --------------\n"
+  printf "\n-------------- INSTALL --------------\n"
   install
   installRequirements
   download
@@ -156,6 +207,7 @@ then
   printf "\n------------- CONFIGURE -------------\n"
   configurescript
   setUpDatabase
+  setUpMqtt
 fi
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
@@ -173,4 +225,8 @@ printf "\n--------------- DONE ----------------\n"
 if [ "$1" = "start" ] || [ -z "$1" ]
 then
   finish
+fi
+if [ "$1" = "install" ]
+then
+  printf "Execute ** thapmu setup ** to setup the database and the mqtt server.\n"
 fi
