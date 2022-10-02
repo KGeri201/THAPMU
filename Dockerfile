@@ -2,7 +2,7 @@ FROM debian:stable-slim
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates cron --no-install-recommends
 
-COPY setup.sh /usr/bin/thapmu
+COPY thapmu.sh /usr/bin/thapmu
 
 VOLUME [ "/usr/src/app" ]
 
