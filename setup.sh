@@ -209,7 +209,7 @@ then
   setUpDatabase
   setUpMqtt
 fi
-if [ "$1" = "start" ] || [ -z "$1" ]
+if [ "$1" = "setup" ] || [ "$1" = "start" ] || [ -z "$1" ]
 then
   printf "\n--------------- START ---------------\n"
   printf "Starting services ...\n"
