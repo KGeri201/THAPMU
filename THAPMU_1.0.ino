@@ -133,8 +133,7 @@ void setup() {
   //mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
   // If your broker requires authentication (username and password), set them below
-  if(MQTT_USER.length() > 0 && MQTT_PASSWORD.length() > 0) 
-  {
+  if (String(MQTT_USER).length() > 0 && String(MQTT_PASSWORD).length() > 0) {
     mqttClient.setCredentials(MQTT_USER, MQTT_PASSWORD);
   }
   
