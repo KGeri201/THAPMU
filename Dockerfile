@@ -2,17 +2,18 @@ FROM debian:stable-slim
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y ca-certificates cron --no-install-recommends
 
-COPY thapmu.sh /usr/bin/thapmu
-
-VOLUME [ "/usr/src/app" ]
+COPY thapmu.sh /usr/local/bin/thapmu
 
 WORKDIR /usr/src/app
 
-RUN sed -i "s|  /usr/bin/python3 /root/MQTTInfluxDBBridge.py|  /usr/bin/python3 $PWD/MQTTInfluxDBBridge.py|g" /usr/bin/thapmu && \
-    sed -i "s|  systemctl start influxdb|  /usr/bin/influxd -config /etc/influxdb/influxdb.conf &>/dev/null &|g" /usr/bin/thapmu && \
-    sed -i "s|  finish|  printf 'Everything is up and running.\n'|g" /usr/bin/thapmu && \
-    sed -i "s|  startServices|  startServicesDocker|g" /usr/bin/thapmu && \
-    chmod +x /usr/bin/thapmu
+VOLUME ["/usr/src/app"]
+
+RUN sed -i -e 's/\r$//' /usr/local/bin/thapmu && \
+    sed -i "s|  /usr/bin/python3 /root/MQTTInfluxDBBridge.py|  /usr/bin/python3 $PWD/MQTTInfluxDBBridge.py|g" /usr/local/bin/thapmu && \
+    sed -i "s|  systemctl start influxdb|  /usr/bin/influxd -config /etc/influxdb/influxdb.conf &>/dev/null &|g" /usr/local/bin/thapmu && \
+    sed -i "s|  finish|  printf 'Everything is up and running.\n'|g" /usr/local/bin/thapmu && \
+    sed -i "s|  startServices|  startServicesDocker|g" /usr/local/bin/thapmu && \
+    chmod +x /usr/local/bin/thapmu
     
 RUN thapmu install && \
     sed -i "s|pid_file /run/mosquitto/mosquitto.pid|#pid_file /run/mosquitto/mosquitto.pid|g" /etc/mosquitto/mosquitto.conf
