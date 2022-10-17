@@ -37,6 +37,9 @@ Adafruit_BME280 sensor;
 // Interval of topic updates in seconds
 #define Interval 10
 
+// Value, which will be substracted from the Temperature, due to the sensor heating itself
+const double tempErrorMargin = 5.5;
+
 // Temperature MQTT Topics
 const String MQTT_PUB_TEMP = "THAPMU/" + String(LOCATION) + "/" + String(NAME)+ "/temperature";
 const String MQTT_PUB_HUM = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/humidity";
@@ -120,12 +123,6 @@ void setup() {
     while (1);
   }
   
-  sensor.setSampling(Adafruit_BME280::MODE_NORMAL,     /* Operating Mode. */
-                     Adafruit_BME280::SAMPLING_X2,     /* Temp. oversampling */
-                     Adafruit_BME280::SAMPLING_X16,    /* Pressure oversampling */
-                     Adafruit_BME280::FILTER_X16,      /* Filtering. */
-                     Adafruit_BME280::STANDBY_MS_500); /* Standby time. */
-  
   wifiConnectHandler = WiFi.onStationModeGotIP(onWifiConnect);
   wifiDisconnectHandler = WiFi.onStationModeDisconnected(onWifiDisconnect);
 
@@ -136,8 +133,7 @@ void setup() {
   //mqttClient.onPublish(onMqttPublish);
   mqttClient.setServer(MQTT_HOST, MQTT_PORT);
   // If your broker requires authentication (username and password), set them below
-  if(MQTT_USER.length() > 0 && MQTT_PASSWORD.length() > 0) 
-  {
+  if (String(MQTT_USER).length() > 0 && String(MQTT_PASSWORD).length() > 0) {
     mqttClient.setCredentials(MQTT_USER, MQTT_PASSWORD);
   }
   
@@ -146,7 +142,7 @@ void setup() {
 
 void loop() {
   // Publish an MQTT message on topic esp/sensor/temperature
-  uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP.c_str(), 1, true, String(sensor.readTemperature()).c_str()); //temp = 1.8*sensor.readTemperature() + 32                        
+  uint16_t packetIdPub1 = mqttClient.publish(MQTT_PUB_TEMP.c_str(), 1, true, String(sensor.readTemperature()  - tempErrorMargin).c_str()); //temp = 1.8*sensor.readTemperature() + 32                        
   Serial.printf("Publishing on topic %s at QoS 1, packetId: %i ", MQTT_PUB_TEMP, packetIdPub1);
 
   // Publish an MQTT message on topic esp/sensor/humidity
