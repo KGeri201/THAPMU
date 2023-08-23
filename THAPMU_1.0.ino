@@ -41,9 +41,9 @@ Adafruit_BME280 sensor;
 const double tempErrorMargin = 5.5;
 
 // Temperature MQTT Topics
-const String MQTT_PUB_TEMP = "THAPMU/" + String(LOCATION) + "/" + String(NAME)+ "/temperature";
-const String MQTT_PUB_HUM = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/humidity";
-const String MQTT_PUB_PRES = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "/pressure";
+const String MQTT_PUB_TEMP = "THAPMU/" + String(LOCATION) + "/" + String(NAME)+ "sensor/temperature/state";
+const String MQTT_PUB_HUM = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "sensor/humidity/state";
+const String MQTT_PUB_PRES = "THAPMU/" + String(LOCATION) + "/" + String(NAME) + "sensor/pressure/state";
 
 AsyncMqttClient mqttClient;
 Ticker mqttReconnectTimer;
