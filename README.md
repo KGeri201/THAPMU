@@ -8,7 +8,7 @@ THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**e
 I wanted to create a cheap and easy to make IoT sensor, that works with nearly anything, to monitor the temerapture and humidity levels of multiple rooms.
 
 ## Hardware
-The custom PCB is a very simple power adapter to power and connect the sensor and the esp.
+The custom PCB is a very simple power adapter to power and connect the sensor and the ESP.
 
 ## Software
 It uses [ESPHome](https://esphome.io/index.html), [MQTT](https://de.wikipedia.org/wiki/MQTT), [InfluxDB](https://www.influxdata.com/) and a [script](MQTTInfluxDBBridge.py) to connect all this together.  
@@ -79,7 +79,7 @@ systemctl enable mqttinfluxdbbridge
 3. Add new device.
 4. Load the [example_esphome.conf](example_esphome.conf) and edit the values to fit your needs.  
    Make sure that the right sensor is selected and all the credentials are right.
-5. Flash the code to the esp following the guide from esphome
+5. Flash the code to the ESP following the guide from ESPHome
 
 #### Legacy
 1. Open the code for the ESP and change the library according to your sensor.  
