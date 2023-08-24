@@ -5,7 +5,7 @@
 THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**easurement **U**nit. 
 
 ## Story
-I wanted to create a cheap and easy to make IoT sensor, that works with nearly anything, to monitor the temerapture and humidity levels of multiple rooms.
+I wanted to create a small, cheap and easy to make IoT sensor, that works with nearly anything, to monitor the temerapture and humidity levels of multiple rooms.
 
 ## Hardware
 The custom PCB is a very simple power adapter to power and connect the sensor and the ESP.
