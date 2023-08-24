@@ -11,7 +11,7 @@ I wanted to create a cheap and easy to make IoT sensor, that works with nearly a
 The custom PCB is a very simple power adapter to power and connect the sensor and the esp.
 
 ## Software
-It uses [ESPHome](https://esphome.io/index.html), [MQTT](https://de.wikipedia.org/wiki/MQTT), [InfluxDB](https://www.influxdata.com/) and a [script](/blob/main/MQTTInfluxDBBridge.py) to connect all this together.  
+It uses [ESPHome](https://esphome.io/index.html), [MQTT](https://de.wikipedia.org/wiki/MQTT), [InfluxDB](https://www.influxdata.com/) and a [script](MQTTInfluxDBBridge.py) to connect all this together.  
 I found a [code](https://randomnerdtutorials.com/esp8266-nodemcu-mqtt-publish-bme280-arduino/) very similar and nearly perfect for my use.  
 I only modified it a little to make it a perfect fit.    
 It uses Grafana to visualize the data, but anything else can be used.
