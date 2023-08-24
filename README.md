@@ -77,8 +77,9 @@ systemctl enable mqttinfluxdbbridge
 1. Install ESPHome on a server.
 2. Go to http://ip-of-your-server:6052
 3. Add new device.
-4. Load the [example_esphome.conf](example_esphome.conf) and edit the values to fit your needs.
+4. Load the [example_esphome.conf](example_esphome.conf) and edit the values to fit your needs.  
    Make sure that the right sensor is selected and all the credentials are right.
+5. Flash the code to the esp following the guide from esphome
 
 #### Legacy
 1. Open the code for the ESP and change the library according to your sensor.  
