@@ -36,7 +36,6 @@ services:
     container_name: thapmu
     restart: unless-stopped
     environment:
-      - INFLUXDB_DATABASE=thapmu
       - INFLUXDB_ORG=thapmu
       - INFLUXDB_BUCKET=thapmu
       - INFLUXDB_TOKEN=my-super-secret-auth-token
