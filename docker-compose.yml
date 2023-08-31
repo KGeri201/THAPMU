@@ -34,7 +34,6 @@ services:
 
   thapmu:
     container_name: thapmu
-    build: .
     restart: unless-stopped
     environment:
       - INFLUXDB_DATABASE=thapmu
@@ -44,7 +43,7 @@ services:
     depends_on:
       - mqtt
       - db
-    #image: kgeri201/thapmu:latest
+    image: kgeri201/thapmu:latest
 
 volumes:
   grafana_data: {}
