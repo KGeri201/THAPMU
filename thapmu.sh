@@ -141,10 +141,10 @@ setUpDatabase() {
   then
     printf "Found backup. Restoring ...\n"
     influxd restore -portable ./thapmu
-  else
-    influx -execute "CREATE DATABASE $db_name"
-    influx -database "$db_name" -execute "CREATE USER $db_user WITH PASSWORD '$db_pwd'"
-    influx -database "$db_name" -execute "GRANT ALL ON $db_name TO $db_user"
+  # else
+  #   influx -execute "CREATE DATABASE $db_name"
+  #   influx -database "$db_name" -execute "CREATE USER $db_user WITH PASSWORD '$db_pwd'"
+  #   influx -database "$db_name" -execute "GRANT ALL ON $db_name TO $db_user"
   fi
 
   printf "Setting up backup for the database ...\n"
