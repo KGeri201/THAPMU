@@ -19,7 +19,7 @@ It uses Grafana to visualize the data, but anything else can be used.
 
 ## Installation
 ### Docker (recomended)
-Follow the Guide on [Docker Hub](https://hub.docker.com/repository/docker/kgeri201/thapmu)
+Follow the Guide on [Docker Hub](https://hub.docker.com/r/kgeri201/thapmu)
 
 ### Manual
 Download the thapmu.sh with wget or any other way.
