@@ -1,7 +1,6 @@
 <p align="center"><img src="THAPMU.svg" alt="Logo" height="200"/></P>
 
 # THAPMU
-[![Docker Pulls](https://img.shields.io/docker/pulls/kgeri201/thapmu)](https://hub.docker.com/r/kgeri201/thapmu)  
 THAPMU stands for **T**emerature, **H**umiditity and **A**ir **P**ressure **M**easurement **U**nit. 
 
 ## Story
@@ -19,7 +18,7 @@ It uses Grafana to visualize the data, but anything else can be used.
 
 ## Installation
 ### Docker (recomended)
-Follow the Guide on [Docker Hub](https://hub.docker.com/r/kgeri201/thapmu)
+Follow the Guide for [docker deployment](DOCKER.md)
 
 ### Manual
 Download the thapmu.sh with wget or any other way.
