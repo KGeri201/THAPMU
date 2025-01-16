@@ -27,9 +27,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      # - name: lowercase repository name
-      #   run: |
-      #     echo "REPO=${IMAGE_NAME@L}" >> "${GITHUB_ENV}"
+      - name: lowercase repository name
+        run: |
+          echo "REPO=${IMAGE_NAME@L}" >> "${GITHUB_ENV}"
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v6
@@ -37,8 +37,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME@L }}:latest
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME@L }}:${{ steps.date.outputs.date }}
+            ${{ env.REGISTRY }}/${{ env.REPO }}:latest
+            ${{ env.REGISTRY }}/${{ env.REPO }}:${{ steps.date.outputs.date }}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
