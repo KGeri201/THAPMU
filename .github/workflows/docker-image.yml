@@ -29,13 +29,13 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build and push Docker image
         id: push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
           tags: |
-            ${{ env.REGISTRY }}/${{ lowercase(env.IMAGE_NAME) }}:latest
-            ${{ env.REGISTRY }}/${{ lowercase(env.IMAGE_NAME) }}:${{ steps.date.outputs.date }}
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.date.outputs.date }}
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v1
         with:
