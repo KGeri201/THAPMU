@@ -67,16 +67,8 @@ def on_message(client, userdata, msg):
     if sensor_data is not None:
         _send_sensor_data_to_influxdb(sensor_data)
 
-# def _init_influxdb_database():
-#     databases = influx.get_list_database()
-#     if len(list(filter(lambda x: x['name'] == INFLUXDB_DATABASE, databases))) == 0:
-#         influx.create_database(INFLUXDB_DATABASE)
-#     influx.switch_database(INFLUXDB_DATABASE)
-
 def main():
-    #_init_influxdb_database()
-
-    mqtt_client = mqtt.Client(MQTT_CLIENT_ID)
+    mqtt_client = mqtt.Client()
     if not MQTT_USER.isspace() and bool(MQTT_USER) and not MQTT_PASSWORD.isspace() and bool(MQTT_PASSWORD):
         mqtt_client.username_pw_set(MQTT_USER, MQTT_PASSWORD)
     mqtt_client.on_connect = on_connect
