@@ -50,7 +50,7 @@ services:
     depends_on:
       - mqtt
       - db
-    image: ghcr.io/kgeri201/thapmu:main
+    image: ghcr.io/kgeri201/thapmu:latest
 
 volumes:
   grafana_data: {}
