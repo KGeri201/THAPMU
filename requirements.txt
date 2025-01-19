@@ -1,2 +1,2 @@
-paho-mqtt 
-influxdb-client
+influxdb-client==1.48.0
+paho-mqtt==2.1.0
