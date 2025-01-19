@@ -17,7 +17,7 @@ ENV MQTT_TOPIC "THAPMU/+/+/sensor/+/state"
 ENV MQTT_REGEX "THAPMU/([^/]+)/([^/]+)/sensor/([^/]+)/state"
 ENV MQTT_CLIENT_ID "MQTTInfluxDBBridge"
 
-RUN apk update &&
+RUN apk update
 
 WORKDIR /usr/src/app
 
