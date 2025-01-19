@@ -17,7 +17,7 @@ ENV MQTT_TOPIC "THAPMU/+/+/sensor/+/state"
 ENV MQTT_REGEX "THAPMU/([^/]+)/([^/]+)/sensor/([^/]+)/state"
 ENV MQTT_CLIENT_ID "MQTTInfluxDBBridge"
 
-RUN apk update && apk upgrade --available
+RUN apk update &&
 
 WORKDIR /usr/src/app
 
@@ -28,4 +28,4 @@ RUN pip3 install --no-cache-dir -r /tmp/requirements.txt
 
 RUN rm /tmp/requirements.txt
 
-ENTRYPOINT ["/usr/local/bin/python3", "MQTTInfluxDBBridge.py"]
+ENTRYPOINT ["python3", "/usr/src/app/MQTTInfluxDBBridge.py"]
